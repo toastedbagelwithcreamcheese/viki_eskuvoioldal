@@ -6,15 +6,15 @@ import { Hotel, Bus, ExternalLink } from 'lucide-react';
 const accommodations = [
   {
     name: 'Villa Chardonnay Etyek',
-    link: '#', // Ide jöhet a szállás linkje
+    link: 'https://villaetyek.hu/', // Ide jöhet a szállás linkje
   },
   {
     name: 'Átrium Panzió',
-    link: '#', // Ide jöhet a szállás linkje
+    link: 'https://www.facebook.com/atriumpanzioesborhaz/', // Ide jöhet a szállás linkje
   },
   {
     name: 'Búzál Morócza Pincészet',
-    link: '#', // Ide jöhet a szállás linkje
+    link: 'https://buzalmorocza.bedsandhotels.com/', // Ide jöhet a szállás linkje
   },
 ];
 
