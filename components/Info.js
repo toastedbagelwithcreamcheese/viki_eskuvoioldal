@@ -49,7 +49,13 @@ export default function Info() {
               Ajánlott Szállások
             </h3>
             <p className="text-gray-600 mb-4">
-              A szállásfoglalás saját költségen lehetséges az alábbi helyeken, akár már június 5-től.
+              Szállás saját költségen foglalható
+              igény esetén akár június 5-töl is. Ha
+              szeretnétek szállást, kérünk
+              Benneteket, legkésóbb 2026 április
+              15- ig jelezzétek, mivel a helyeket csak korlátozott idöre tartják fent
+              számunkra, ezután lemondásra
+              kerül.
             </p>
             <ul className="space-y-3">
               {accommodations.map((acc) => (
@@ -81,7 +87,12 @@ export default function Info() {
               Transzfer
             </h3>
             <p className="text-gray-600">
-              Vendégeink kényelmét szem előtt tartva transzfert is biztosítunk, melynek díja a jelentkezők számától függ.
+              Vendégeink kényelme érdekében -
+              hogy maximálisan élvezhessétek az
+              estét - igény esetén lehetöséget
+              biztosítunk transferszolgálat
+              igénybevételére, melynek díja a
+              foglalt helyek számától függ.
             </p>
             <p className="mt-4 text-sm text-gray-500">
               Az ezzel kapcsolatos igényeteket kérjük, az RSVP szekcióban jelezzétek, hogy a szervezést gördülékennyé tegyétek számunkra.

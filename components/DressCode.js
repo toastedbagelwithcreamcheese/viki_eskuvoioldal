@@ -36,7 +36,7 @@ export default function DressCode() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">Hölgyeknek</h3>
-                <p className="text-gray-600">Elegáns maxi vagy midi ruha.</p>
+                <p className="text-gray-600">Ha ruhára esne a választás: Elegáns maxi vagy midi ruha.</p>
               </div>
             </div>
             {/* Uraknak */}
@@ -53,7 +53,7 @@ export default function DressCode() {
 
           {/* Színpaletta és inspiráció */}
           <div className="mt-8 pt-8 border-t border-gray-200">
-              <h4 className="text-lg font-semibold text-gray-700">Inspiráció</h4>
+              <h4 className="text-lg font-semibold text-gray-700">Szín inspiráció</h4>
               <p className="text-sm text-gray-500 mt-2 mb-4">Ajánlott pasztell árnyalatok:</p>
               <div className="flex justify-center gap-3 flex-wrap">
                   <div className="w-10 h-10 rounded-full bg-[#e6e0d4] border border-gray-200" title="Bézs"></div>
@@ -66,9 +66,9 @@ export default function DressCode() {
               <div className="mt-6">
                 <p className="text-sm text-gray-500 mb-4">Finoman jeleznénk, hogy a hölgyek kerüljék az alábbi színeket:</p>
                  <div className="flex justify-center gap-4 flex-wrap">
-                    <div className="relative w-10 h-10 rounded-full bg-white border-2 border-red-300" title="Fehér"><X className="absolute inset-0 m-auto text-red-500" /></div>
-                    <div className="relative w-10 h-10 rounded-full bg-red-600 border" title="Piros"><X className="absolute inset-0 m-auto text-white" /></div>
-                    <div className="relative w-10 h-10 rounded-full bg-black border" title="Fekete"><X className="absolute inset-0 m-auto text-white" /></div>
+                    <div className="relative w-8 h-8 rounded-full bg-white border-2 border-red-300" title="Fehér"><X className="absolute inset-0 m-auto text-red-500" /></div>
+                    <div className="relative w-8 h-8 rounded-full bg-red-600 border" title="Piros"><X className="absolute inset-0 m-auto text-white" /></div>
+                    <div className="relative w-8 h-8 rounded-full bg-black border" title="Fekete"><X className="absolute inset-0 m-auto text-white" /></div>
                  </div>
               </div>
 

@@ -82,7 +82,7 @@ export default function Hero() {
           Viktória & Tomi
         </h1>
         <p className="mt-4 text-lg md:text-xl text-white/90 tracking-wide">
-          Összeházasodunk 2026. 06. 06.
+          2026. 06. 06.
         </p>
 
         {/* Számláló */}

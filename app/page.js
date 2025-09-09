@@ -21,14 +21,21 @@ export default function WeddingWebsite() {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h2 className="text-4xl md:text-5xl font-serif text-gray-800">Visszajelzés</h2>
             <p className="text-lg text-gray-600 mt-4 mb-10">
-              Kérjük, legkésőbb május 6-ig jelezzétek, hogy számíthatunk-e Rátok!
+              Kérjük, hogy részvételi
+              szándékotokat legkésöbb 2026.
+              március 20-ig jelezzétek. Ha úgy
+              alakul, hogy nem tudtok velünk ünnepelni, természetesen teljes
+              szívvel megértjük és elfogadjuk -
+              arra kérünk, jelezzétek elöre, hogy
+              ne várjon hiába egy szépen
+              megterített hely az asztalnál.
             </p>
             <RsvpForm />
           </div>
         </section>
-
-        <DressCode />
         <Info />
+        <DressCode />
+        
         <Gallery /> {/* Galéria komponens hozzáadva */}
 
         {/* Üzenj nekünk Szekció */}

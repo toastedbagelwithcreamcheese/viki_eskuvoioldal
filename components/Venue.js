@@ -18,7 +18,7 @@ export default function Venue() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-800">A Nagy Nap Helyszíne</h2>
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-800">A Nagy Nap részletei</h2>
           <p className="text-lg text-gray-600 mt-4">
             Szeretettel várunk Benneteket az Etyeki Czímeres Birtokon!
           </p>
@@ -44,11 +44,12 @@ export default function Venue() {
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-gray-700 flex items-center gap-3 mb-3">
                 <Clock className="text-gray-400" /> {/* Visszafogottabb ikonszín */}
-                Időrend
+                Programok
               </h3>
               <ul className="space-y-2 text-gray-600">
                 <li><span className="font-bold">16:00</span> – Vendégvárás</li>
                 <li><span className="font-bold">17:00</span> – Ceremónia</li>
+                <li><span className="font-bold">19:00</span> – Vacsora</li>
               </ul>
             </div>
              <a
