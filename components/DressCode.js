@@ -1,9 +1,25 @@
 // components/DressCode.js
 'use client';
-import { motion } from 'framer-motion';
-import { Shirt, Diamond, ExternalLink, X } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { Shirt, Diamond, ExternalLink, X, ChevronDown } from 'lucide-react';
+
+const inspirationImages = [
+  { src: '/inspiration/1.png' },
+  { src: '/inspiration/2.png' },
+  { src: '/inspiration/3.png' },
+  { src: '/inspiration/4.png' },
+  { src: '/inspiration/5.png' },
+  { src: '/inspiration/6.png' },
+  { src: '/inspiration/7.png' },
+  { src: '/inspiration/8.png' },
+  { src: '/inspiration/9.png' },
+];
 
 export default function DressCode() {
+  const [inspirationOpen, setInspirationOpen] = useState(false);
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-4xl text-center">
@@ -51,19 +67,33 @@ export default function DressCode() {
             </div>
           </div>
 
-          {/* Színpaletta és inspiráció */}
+          {/* FRISSÍTETT Színpaletta és inspiráció */}
           <div className="mt-8 pt-8 border-t border-gray-200">
-              <h4 className="text-lg font-semibold text-gray-700">Szín inspiráció</h4>
-              <p className="text-sm text-gray-500 mt-2 mb-4">Ajánlott pasztell árnyalatok:</p>
-              <div className="flex justify-center gap-3 flex-wrap">
-                  <div className="w-10 h-10 rounded-full bg-[#e6e0d4] border border-gray-200" title="Bézs"></div>
-                  <div className="w-10 h-10 rounded-full bg-[#d4e6e1] border border-gray-200" title="Zsálya"></div>
-                  <div className="w-10 h-10 rounded-full bg-[#e1d4e6] border border-gray-200" title="Levendula"></div>
-                  <div className="w-10 h-10 rounded-full bg-[#d4d4e6] border border-gray-200" title="Halványkék"></div>
-                  <div className="w-10 h-10 rounded-full bg-[#e6d4d4] border border-gray-200" title="Púderrózsaszín"></div>
+              <h4 className="text-lg font-semibold text-gray-700 mb-4">Szín inspiráció</h4>
+              
+              {/* Kétsoros színpaletta */}
+              <div className="flex flex-col items-center gap-3">
+                  {/* Felső sor: Melegebb / Világosabb árnyalatok */}
+                  <div className="flex justify-center gap-3 flex-wrap">
+                      <div className="w-10 h-10 rounded-full bg-[#E1BCC2]" title="Fakó rózsaszín"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#D8A87C]" title="Okker"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#F3D6B9]" title="Barack"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#A2AD97]" title="Világos zsálya"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#9bdae9]" title="Világos kék"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#97A5A2]" title="Szürkészöld"></div>
+                  </div>
+                   {/* Alsó sor: Sötétebb, földszínek */}
+                  <div className="flex justify-center gap-3 flex-wrap">
+                      <div className="w-10 h-10 rounded-full bg-[#B5838D]" title="Mályva"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#C58C5A]" title="Rozsdabarna"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#8E5E32]" title="Barna"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#799163]" title="Zsályazöld"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#68a1af]" title="Világos kék"></div>
+                      <div className="w-10 h-10 rounded-full bg-[#487266]" title="Sötétzöld"></div>
+                  </div>
               </div>
               
-              <div className="mt-6">
+              <div className="mt-8">
                 <p className="text-sm text-gray-500 mb-4">Finoman jeleznénk, hogy a hölgyek kerüljék az alábbi színeket:</p>
                  <div className="flex justify-center gap-4 flex-wrap">
                     <div className="relative w-8 h-8 rounded-full bg-white border-2 border-red-300" title="Fehér"><X className="absolute inset-0 m-auto text-red-500" /></div>
@@ -72,12 +102,49 @@ export default function DressCode() {
                  </div>
               </div>
 
-              {/* Inspirációs link */}
-              <div className="mt-8">
-                 <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors">
-                    További ötletek és inspirációk <ExternalLink size={16} />
-                </a>
-              </div>
+              {/* ÚJ: Lenyíló gomb */}
+            <button
+              onClick={() => setInspirationOpen(!inspirationOpen)}
+              className="mt-4 inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors"
+            >
+              <span>Inspirációs képek mutatása</span>
+              <motion.div animate={{ rotate: inspirationOpen ? 180 : 0 }}>
+                <ChevronDown size={20} />
+              </motion.div>
+            </button>
+
+            {/* ÚJ: Lenyíló galéria */}
+            <AnimatePresence>
+              {inspirationOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+                    {inspirationImages.map((image, index) => (
+                      <div key={index} className="relative h-64 overflow-hidden rounded-lg">
+                        <Image
+                          src={image.src}
+                          alt={`Inspirációs kép ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* FRISSÍTETT Pinterest link */}
+            <div className="mt-8">
+               <a href="https://hu.pinterest.com/search/pins/?q=garden%20formal%20pastel%20wedding%20guest" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors">
+                  Inspirálódj a Pinteresten! <ExternalLink size={16} />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
