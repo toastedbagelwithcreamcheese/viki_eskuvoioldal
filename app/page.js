@@ -7,17 +7,17 @@ import RsvpForm from '../components/RsvpForm';
 import DressCode from '../components/DressCode';
 import Info from '../components/Info';
 import Contact from '../components/Contact';
-import Gallery from '../components/Gallery'; // Új komponens importálása
+import Gallery from '../components/Gallery';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 
 export default function WeddingWebsite() {
   return (
-    <main className="min-h-screen bg-white text-gray-800 font-body relative">
+    <main className="min-h-screen text-gray-800 font-body relative bg-gradient-to-b from-[#fafafa] to-[#fdfdfd]">
         <Hero />
         <Venue />
 
         {/* RSVP Szekció */}
-        <section id="rsvp" className="py-20 bg-gray-50">
+        <section id="rsvp" className="py-20 section-bg">
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h2 className="text-4xl md:text-5xl font-serif text-gray-800">Visszajelzés</h2>
             <p className="text-lg text-gray-600 mt-4 mb-10">
@@ -33,13 +33,13 @@ export default function WeddingWebsite() {
             <RsvpForm />
           </div>
         </section>
+
         <Info />
         <DressCode />
-        
-        <Gallery /> {/* Galéria komponens hozzáadva */}
+        <Gallery />
 
         {/* Üzenj nekünk Szekció */}
-        <section id="contact" className="py-20 bg-gray-50">
+        <section id="contact" className="py-20 section-bg">
           <div className="container mx-auto px-6 max-w-2xl text-center">
             <h2 className="text-4xl md:text-5xl font-serif text-gray-800">Üzenj nekünk!</h2>
             <p className="text-lg text-gray-600 mt-4 mb-10">

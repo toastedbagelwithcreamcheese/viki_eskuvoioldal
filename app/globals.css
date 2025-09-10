@@ -25,130 +25,53 @@
   font-weight: bold;
 }
 
-
+/* Debug */
 .debug-section {
-    background-color: rgba(255, 0, 0, 0.5);
-    color: white;
-    padding: 20px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  html, body {
-    height: auto;
-    overflow-y: scroll !important;
-  }
-
- /* === ÚJ, UNIVERZÁLIS PRÉMIUM GOMB STÍLUS === */
-.btn-primary {
-  position: relative;
-  overflow: hidden; /* Szükséges a belső animációhoz */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 2rem; /* px-8 py-3 */
-  background-color: #B76E79; /* brand-rose */
+  background-color: rgba(255, 0, 0, 0.5);
   color: white;
-  font-family: var(--font-sans); /* Montserrat */
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.05em; /* tracking-widest */
-  border-radius: 9999px; /* rounded-full */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-  z-index: 1;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* --- ÚJ, FINOMÍTOTT HOVER ANIMÁCIÓ --- */
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)) 100% 100%;
-  transform: scale(0);
-  transition: transform 0.4s ease-out;
+html, body {
+  height: auto;
+  overflow-y: scroll !important;
 }
 
-.btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(183, 110, 121, 0.3); /* brand-rose árnyék */
+/* --- ÚJ STÍLUSOK --- */
+
+/* Finom textúra szekcióknak */
+.section-bg {
+  /*background-image: url("/patterns/paper-texture.png"); ide tehetsz nagyon halvány PNG-t vagy SVG-t */
+  background-repeat: repeat;
+  background-size: 300px;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.btn-primary:hover::before {
-  transform: scale(2.5);
+/* Finom animáció a szekcióknak */
+.section-bg {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.section-bg:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-.perspective {
-  perspective: 1000px;
+/* Linkek elegáns hoverrel */
+a {
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+a:hover {
+  color: #c79c8d;
 }
 
-.transform-style-preserve-3d {
-  transform-style: preserve-3d;
+/* Gombokra egységes stílus */
+button {
+  transition: all 0.3s ease;
 }
-
-
-.bg-paper-like {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.03) 0,
-    rgba(255, 255, 255, 0.03) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-}
-
-.bg-paper-premium {
-  background-color: #fce4ec;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
-      transparent 2px,
-      transparent 4px
-    ),
-    linear-gradient(to bottom right, #f8bbd0, #f48fb1);
-  background-blend-mode: overlay;
-  background-size: cover;
-}
-
-
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(150%);
-  }
-}
-
-.shine-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 20;
-  pointer-events: none;
-}
-
-.shine-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-25deg);
-  animation: shine 3s ease-in-out infinite;
+button:hover {
+  transform: translateY(-2px);
 }
