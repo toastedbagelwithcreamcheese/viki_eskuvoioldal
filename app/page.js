@@ -22,12 +22,12 @@ export default function WeddingWebsite() {
         </div>
 
         {/* Minden szekciónak megadjuk a megfelelő id-t */}
-        <section id="venue" className="py-20">
+        <section id="venue" className="py-20 scroll-mt-20">
           <Venue />
         </section>
 
         {/* RSVP Szekció */}
-        <section id="rsvp" className="py-20 bg-gradient-to-b from-background to-muted/20">
+        <section id="rsvp" className="py-20 bg-gradient-to-b from-background to-muted/20 scroll-mt-20">
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h2 className="text-4xl md:text-5xl">Visszajelzés</h2>
             <p className="text-lg text-muted-foreground mt-4 mb-10">

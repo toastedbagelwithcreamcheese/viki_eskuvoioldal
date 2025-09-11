@@ -29,12 +29,15 @@ export default function Navbar() {
   ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-  };
+  const element = document.querySelector(href);
+  if (element) {
+    const yOffset = -80; // navbar magassága
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+  setIsOpen(false);
+};
+
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -79,14 +82,16 @@ export default function Navbar() {
             >
               <div className="pb-4 space-y-2">
                 {navItems.map((item) => (
-                  <button
-                    key={item.label}
-                    onClick={() => scrollToSection(item.href)}
-                    className="w-full text-left font-body text-base text-foreground hover:bg-primary/20 hover:text-foreground transition-colors px-4 py-3 rounded-md"
-                  >
-                    {item.label}
-                  </button>
-                ))}
+  <a
+    key={item.label}
+    href={item.href}
+    onClick={() => setIsOpen(false)}
+    className="block w-full text-left font-body text-base text-foreground hover:bg-primary/20 hover:text-foreground transition-colors px-4 py-3 rounded-md"
+  >
+    {item.label}
+  </a>
+))}
+
               </div>
             </motion.div>
           )}

@@ -18,7 +18,7 @@ export const metadata = {
   title: 'Viktória & Tomi Esküvője',
   description: 'Szeretettel meghívunk az esküvőnkre!',
   icons: {
-    icon: '/favicon.ico', // Alapértelmezett favicon
+    icon: '/public/favicon.ico', // Alapértelmezett favicon
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
     other: [
