@@ -89,7 +89,7 @@ export default function RsvpForm() {
 
   if (status === 'success') {
     return (
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center py-10 bg-white rounded-xl shadow-xl max-w-2xl mx-auto">
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center py-10 rounded-xl shadow-xl max-w-2xl mx-auto">
         <SuccessIcon />
         <h3 className="text-3xl font-serif mt-4 text-emerald-700">Köszönjük a visszajelzésed!</h3>
         <p className="mt-2 text-gray-600">{isAttending ? 'Szeretettel várunk a nagy napon!' : 'Sajnáljuk, hogy nem tudsz velünk ünnepelni.'}</p>

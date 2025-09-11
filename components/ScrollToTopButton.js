@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white border border-gray-300 shadow-md text-brand-rose hover:bg-brand-rose hover:text-white transition-colors"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white border border-gray-300 shadow-md text-brand-rose hover:bg-brand-rose hover:text-white hover:bg-gray-500 transition-colors"
           aria-label="Ugrás a tetejére"
         >
           <ArrowUp className="w-5 h-5" />

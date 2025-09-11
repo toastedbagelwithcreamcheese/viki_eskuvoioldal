@@ -21,7 +21,7 @@ export default function DressCode() {
   const [inspirationOpen, setInspirationOpen] = useState(false);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6 max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

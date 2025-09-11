@@ -7,28 +7,66 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        'pulse-slow': 'pulse 3s ease-in-out infinite'
-      },
-      perspective: {
-        '1500': '1500px',
-      },
       colors: {
-        'brand-white': '#FFFFFF',
-        'brand-background': '#F9F6F6', // Enyhén törtfehér háttér
-        'brand-text': '#5C5454',       // A menüpontok szövegének színe
-        'brand-rose': '#D9C4C4',       // A rose gold aláhúzáshoz és a logóhoz
-        'brand-pale-pink': '#F5EBEB',  // A logó háttérszíne
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        // ÚJ SZÍNEK A NAVBARHOZ
+        romantic: {
+            DEFAULT: 'hsl(var(--romantic))',
+            foreground: 'hsl(var(--romantic-foreground))'
+        },
+        garden: {
+            DEFAULT: 'hsl(var(--garden))',
+            foreground: 'hsl(var(--garden-foreground))'
+        }
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 4px)',
+        sm: 'calc(var(--radius) - 8px)',
       },
       fontFamily: {
-        serif: ['var(--font-cormorant)'],
-        dancing: ['var(--font-dancing)', 'cursive'],
-        playfair_serif: ['var(--font-playfair)', 'serif'],
-        body: ['var(--font-lora)', 'serif'],
-        sans: ['var(--font-montserrat)'],
-        playfair: ['"Playfair Display"', 'serif'],
-        vibes: ['"Great Vibes"', 'cursive'],
+        heading: ['var(--font-heading)', 'serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
+      // ÚJ ÁRNYÉKOK A NAVBARHOZ
+      boxShadow: {
+        'elegant': 'var(--shadow-elegant)',
+        'romantic': 'var(--shadow-romantic)',
+        'soft': 'var(--shadow-soft)',
+      }
     },
   },
-}
+  plugins: [],
+};

@@ -1,77 +1,63 @@
+/* Wedding Website Design System - Romantic Garden Formal Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Akaya Kanadaka";
-  src: url("/fonts/AkayaKanadaka-Regular.ttf") format("truetype");
+@layer base {
+  :root {
+    /* Romantic Pastel Wedding Palette */
+    --background: 24 100% 98%;  /* Warm cream */
+    --foreground: 205 15% 25%;  /* Soft charcoal */
+
+    --card: 0 0% 100%;  /* Pure white cards */
+    --card-foreground: 205 15% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 15% 25%;
+
+    /* Wedding Theme Colors */
+    --primary: 330 25% 85%;  /* Soft blush pink */
+    --primary-foreground: 205 15% 25%;
+
+    --secondary: 140 20% 85%;  /* Sage green */
+    --secondary-foreground: 205 15% 25%;
+    
+    --muted: 24 15% 92%;  /* Warm beige */
+    --muted-foreground: 205 15% 45%;
+
+    --accent: 45 60% 92%;  /* Champagne */
+    --accent-foreground: 205 15% 25%;
+
+    --destructive: 0 65% 75%;  /* Soft coral for errors */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 20% 90%;  /* Soft cream border */
+    --input: 24 20% 95%;  /* Light cream input */
+    --ring: 330 25% 75%;  /* Pink focus ring */
+
+    --radius: 12px;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* Apply fonts */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  body {
+    font-family: var(--font-body);
+  }
 }
 
-@font-face {
-  font-family: "Anton";
-  src: url("/fonts/Anton-Regular.ttf") format("truetype");
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap');
-
-.font-akaya {
-  font-family: "Akaya Kanadaka", sans-serif;
-  font-weight: 600;
-  color: #c79c8d;
-}
-
-.footer-title {
-  font-family: "Anton", sans-serif;
-  font-weight: bold;
-}
-
-/* Debug */
-.debug-section {
-  background-color: rgba(255, 0, 0, 0.5);
-  color: white;
-  padding: 20px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-html, body {
-  height: auto;
-  overflow-y: scroll !important;
-}
-
-/* --- ÚJ STÍLUSOK --- */
-
-/* Finom textúra szekcióknak */
-.section-bg {
-  /*background-image: url("/patterns/paper-texture.png"); ide tehetsz nagyon halvány PNG-t vagy SVG-t */
-  background-repeat: repeat;
-  background-size: 300px;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-/* Finom animáció a szekcióknak */
-.section-bg {
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-.section-bg:hover {
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-
-/* Linkek elegáns hoverrel */
-a {
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-a:hover {
-  color: #c79c8d;
-}
-
-/* Gombokra egységes stílus */
-button {
-  transition: all 0.3s ease;
-}
-button:hover {
-  transform: translateY(-2px);
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
