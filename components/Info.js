@@ -50,10 +50,10 @@ export default function Info() {
             </h3>
             <p className="text-gray-600 mb-4">
               Szállás saját költségen foglalható
-              igény esetén akár június 5-töl is. Ha
+              igény esetén akár június 5-től is. Ha
               szeretnétek szállást, kérünk
-              Benneteket, legkésóbb 2026 április
-              15- ig jelezzétek, mivel a helyeket csak korlátozott idöre tartják fent
+              Benneteket, legkésőbb 2026 április
+              15- ig jelezzétek, mivel a helyeket csak korlátozott időre tartják fent
               számunkra, ezután lemondásra
               kerül.
             </p>

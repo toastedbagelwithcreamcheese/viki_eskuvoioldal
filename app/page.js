@@ -32,11 +32,11 @@ export default function WeddingWebsite() {
             <h2 className="text-4xl md:text-5xl">Visszajelzés</h2>
             <p className="text-lg text-muted-foreground mt-4 mb-10">
               Kérjük, hogy részvételi
-              szándékotokat legkésöbb 2026.
+              szándékotokat legkésőbb 2026.
               március 20-ig jelezzétek. Ha úgy
               alakul, hogy nem tudtok velünk ünnepelni, természetesen teljes
               szívvel megértjük és elfogadjuk -
-              arra kérünk, jelezzétek elöre, hogy
+              arra kérünk, jelezzétek előre, hogy
               ne várjon hiába egy szépen
               megterített hely az asztalnál.
             </p>

@@ -46,15 +46,40 @@ export default function DressCode() {
           
           <div className="grid md:grid-cols-2 gap-8 my-8 text-left">
             {/* Hölgyeknek */}
-            <div className="flex items-start gap-4">
-              <div className="mt-1">
-                <Diamond className="text-gray-400" />
+            <div className="flex flex-col gap-6 bg-white rounded-2xl shadow-md p-6">
+          <div className="flex items-center gap-3">
+            <Diamond className="text-gray-400 w-6 h-6" />
+            <h3 className="text-xl font-semibold text-gray-800">Hölgyeknek</h3>
+          </div>
+
+          <p className="text-gray-600 leading-relaxed">
+            Ha ruhára esne a választás: elegáns maxi vagy midi ruha
+          </p>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="flex gap-4 flex-wrap justify-center">
+              <div
+                className="relative w-10 h-10 rounded-full bg-white border-2 border-red-300 flex items-center justify-center"
+                title="Fehér"
+              >
+                <X className="text-red-500 w-4 h-4" />
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">Hölgyeknek</h3>
-                <p className="text-gray-600">Ha ruhára esne a választás: Elegáns maxi vagy midi ruha.</p>
+              <div
+                className="relative w-10 h-10 rounded-full bg-red-600 border flex items-center justify-center"
+                title="Piros"
+              >
+                <X className="text-white w-4 h-4" />
+              </div>
+              <div
+                className="relative w-10 h-10 rounded-full bg-black border flex items-center justify-center"
+                title="Fekete"
+              >
+                <X className="text-white w-4 h-4" />
               </div>
             </div>
+          </div>
+        </div>
+
+            
             {/* Uraknak */}
             <div className="flex items-start gap-4">
               <div className="mt-1">
@@ -62,7 +87,7 @@ export default function DressCode() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">Uraknak</h3>
-                <p className="text-gray-600">Smart casual öltözet: zakó, ing, elegáns nadrág – nyakkendő nem kötelező.</p>
+                <p className="text-gray-600">Szolidan elegáns (smart casual) öltözet: zakó, ing, elegáns nadrág - nyakkendő nem kötelező</p>
               </div>
             </div>
           </div>
@@ -71,36 +96,40 @@ export default function DressCode() {
           <div className="mt-8 pt-8 border-t border-gray-200">
               <h4 className="text-lg font-semibold text-gray-700 mb-4">Szín inspiráció</h4>
               
-              {/* Kétsoros színpaletta */}
-              <div className="flex flex-col items-center gap-3">
-                  {/* Felső sor: Melegebb / Világosabb árnyalatok */}
-                  <div className="flex justify-center gap-3 flex-wrap">
-                      <div className="w-10 h-10 rounded-full bg-[#E1BCC2]" title="Fakó rózsaszín"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#D8A87C]" title="Okker"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#F3D6B9]" title="Barack"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#A2AD97]" title="Világos zsálya"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#9bdae9]" title="Világos kék"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#97A5A2]" title="Szürkészöld"></div>
-                  </div>
-                   {/* Alsó sor: Sötétebb, földszínek */}
-                  <div className="flex justify-center gap-3 flex-wrap">
-                      <div className="w-10 h-10 rounded-full bg-[#B5838D]" title="Mályva"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#C58C5A]" title="Rozsdabarna"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#8E5E32]" title="Barna"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#799163]" title="Zsályazöld"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#68a1af]" title="Világos kék"></div>
-                      <div className="w-10 h-10 rounded-full bg-[#487266]" title="Sötétzöld"></div>
-                  </div>
-              </div>
-              
-              <div className="mt-8">
-                <p className="text-sm text-gray-500 mb-4">Finoman jeleznénk, hogy a hölgyek kerüljék az alábbi színeket:</p>
-                 <div className="flex justify-center gap-4 flex-wrap">
-                    <div className="relative w-8 h-8 rounded-full bg-white border-2 border-red-300" title="Fehér"><X className="absolute inset-0 m-auto text-red-500" /></div>
-                    <div className="relative w-8 h-8 rounded-full bg-red-600 border" title="Piros"><X className="absolute inset-0 m-auto text-white" /></div>
-                    <div className="relative w-8 h-8 rounded-full bg-black border" title="Fekete"><X className="absolute inset-0 m-auto text-white" /></div>
-                 </div>
-              </div>
+              {/* Háromsoros színpaletta */}
+<div className="flex flex-col items-center gap-3">
+  {/* Felső sor: Melegebb / Világosabb árnyalatok */}
+  <div className="flex justify-center gap-3 flex-wrap">
+    <div className="w-10 h-10 rounded-full bg-[#E1BCC2]" title="Fakó rózsaszín"></div>
+    <div className="w-10 h-10 rounded-full bg-[#D8A87C]" title="Okker"></div>
+    <div className="w-10 h-10 rounded-full bg-[#F3D6B9]" title="Barack"></div>
+    <div className="w-10 h-10 rounded-full bg-[#A2AD97]" title="Világos zsálya"></div>
+    <div className="w-10 h-10 rounded-full bg-[#9bdae9]" title="Világos kék"></div>
+    <div className="w-10 h-10 rounded-full bg-[#97A5A2]" title="Szürkészöld"></div>
+  </div>
+
+  {/* Középső sor: Sötétebb, földszínek */}
+  <div className="flex justify-center gap-3 flex-wrap">
+    <div className="w-10 h-10 rounded-full bg-[#B5838D]" title="Mályva"></div>
+    <div className="w-10 h-10 rounded-full bg-[#C58C5A]" title="Rozsdabarna"></div>
+    <div className="w-10 h-10 rounded-full bg-[#8E5E32]" title="Barna"></div>
+    <div className="w-10 h-10 rounded-full bg-[#799163]" title="Zsályazöld"></div>
+    <div className="w-10 h-10 rounded-full bg-[#68a1af]" title="Világos kék"></div>
+    <div className="w-10 h-10 rounded-full bg-[#487266]" title="Sötétzöld"></div>
+  </div>
+
+{/* Alsó sor: Lágy pasztell árnyalatok (6 szín) */}
+<div className="flex justify-center gap-3 flex-wrap">
+  <div className="w-10 h-10 rounded-full bg-[#E6B7B7]" title="Pasztell rózsaszín"></div>
+  <div className="w-10 h-10 rounded-full bg-[#F6E1A6]" title="Pasztell sárga"></div>
+  <div className="w-10 h-10 rounded-full bg-[#E9AE92]" title="Pasztell barack"></div>
+  <div className="w-10 h-10 rounded-full bg-[#A2B3AE]" title="Pasztell szürkészöld"></div>
+  <div className="w-10 h-10 rounded-full bg-[#C7D6C1]" title="Pasztell világoszöld"></div>
+  <div className="w-10 h-10 rounded-full bg-[#C9B7E6]" title="Pasztell levendula"></div>
+</div>
+
+</div>
+
 
               {/* ÚJ: Lenyíló gomb */}
             <button
