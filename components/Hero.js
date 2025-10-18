@@ -1,11 +1,12 @@
-// components/Hero.js
 'use client';
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
+  const t = useTranslations('Hero');
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -14,7 +15,7 @@ export default function Hero() {
   });
 
   useEffect(() => {
-    // A ceremónia időpontjára állítva (17:00) a pontosabb visszaszámlálásért
+    // A ceremónia pontos ideje (17:00)
     const targetDate = new Date('2026-06-06T17:00:00');
 
     const updateCountdown = () => {
@@ -37,7 +38,7 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  // Formázó segédfüggvény (pl. 9 -> 09)
+  // Segédfüggvény (pl. 9 → 09)
   const formatNumber = (num) => num.toString().padStart(2, '0');
 
   return (
@@ -47,7 +48,7 @@ export default function Hero() {
         className="absolute inset-0 z-0"
         initial={{ scale: 1, x: 0, y: 0 }}
         animate={{ scale: 1.2, x: '-5%', y: '-5%' }}
-        transition={{ duration: 30, ease: "linear", repeat: Infinity, repeatType: "mirror" }}
+        transition={{ duration: 30, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
       >
         <Image
           src="/images/wedding-hero.jpg"
@@ -58,8 +59,8 @@ export default function Hero() {
           className="object-cover"
         />
       </motion.div>
-      
-      {/* Finom sötétítő réteg a jobb olvashatóságért */}
+
+      {/* Finom sötétítő réteg */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Tartalom */}
@@ -69,38 +70,58 @@ export default function Hero() {
         transition={{ duration: 1.5, delay: 0.5 }}
         className="relative z-20 px-4"
       >
-        {/* Nevek, új stílussal */}
+        {/* Nevek */}
         <h1
           className="text-6xl md:text-8xl lg:text-9xl font-heading text-shadow-lg"
-          style={{ fontFamily: 'var(--font-heading)', textShadow: '0 3px 10px rgba(0,0,0,0.5)' }}
+          style={{
+            fontFamily: 'var(--font-heading)',
+            textShadow: '0 3px 10px rgba(0,0,0,0.5)',
+          }}
         >
           Viktória & Tomi
         </h1>
-        {/* Dátum, új stílussal */}
+
+        {/* Dátum */}
         <p
           className="mt-4 text-xl md:text-2xl tracking-widest uppercase font-body"
           style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
         >
-          2026. Június 6.
+          {t('date')}
         </p>
 
-        {/* Visszaszámláló, új stílussal */}
+        {/* Visszaszámláló */}
         <div className="mt-12 md:mt-16 flex justify-center items-end space-x-4 md:space-x-8 backdrop-blur-sm bg-white/10 p-4 md:p-6 rounded-lg border border-white/20">
           <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">{formatNumber(timeLeft.days)}</p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">Nap</p>
+            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
+              {formatNumber(timeLeft.days)}
+            </p>
+            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
+              {t('days')}
+            </p>
           </div>
           <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">{formatNumber(timeLeft.hours)}</p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">Óra</p>
+            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
+              {formatNumber(timeLeft.hours)}
+            </p>
+            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
+              {t('hours')}
+            </p>
           </div>
           <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">{formatNumber(timeLeft.minutes)}</p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">Perc</p>
+            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
+              {formatNumber(timeLeft.minutes)}
+            </p>
+            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
+              {t('minutes')}
+            </p>
           </div>
           <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">{formatNumber(timeLeft.seconds)}</p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">Másodperc</p>
+            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
+              {formatNumber(timeLeft.seconds)}
+            </p>
+            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
+              {t('seconds')}
+            </p>
           </div>
         </div>
       </motion.div>

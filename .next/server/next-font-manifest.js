@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Volumes/Samsung 1TB SSD/Weboldalak/viki_eskuvoioldal/app/layout\":[\"static/media/e4af272ccee01ff0-s.p.woff2\",\"static/media/6af6b543dd3be231-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Volumes/Samsung 1TB SSD/Weboldalak/viki_eskuvoioldal/app/[locale]/layout\":[\"static/media/e4af272ccee01ff0-s.p.woff2\",\"static/media/eaead17c7dbfcd5d-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

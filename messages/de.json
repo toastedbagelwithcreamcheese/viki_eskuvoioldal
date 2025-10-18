@@ -1,0 +1,107 @@
+{
+  "Metadata": {
+    "title": "Viktória & Tomis Hochzeit",
+    "description": "Wir laden Sie herzlich zu unserer Hochzeit ein!"
+  },
+  "Navbar": {
+    "initials": "V & T",
+    "home": "Startseite",
+    "venue": "Ort",
+    "rsvp": "Zusage",
+    "info": "Infos",
+    "dresscode": "Dresscode",
+    "gallery": "Galerie",
+    "contact": "Nachricht"
+  },
+  "Hero": {
+    "date": "6. Juni 2026",
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden"
+  },
+  "Venue": {
+    "title": "Der Veranstaltungsort",
+    "subtitle": "Wir freuen uns, Sie im Etyeki Czímeres Birtok begrüßen zu dürfen!",
+    "locationTitle": "Ort",
+    "locationName": "Etyeki Czímeres Birtok",
+    "locationAddress": "2091 Etyek, Sóskúti út",
+    "scheduleTitle": "Zeitplan",
+    "scheduleArrival": "Ankunft der Gäste",
+    "scheduleCeremony": "Zeremonie",
+    "scheduleDinner": "Abendessen",
+    "directions": "Route mit Google Maps planen",
+    "dinner": "Abendessen"
+  },
+  "Rsvp": {
+    "title": "Zusage",
+    "description": "Bitte geben Sie uns bis zum 20. März 2026 Bescheid, ob Sie kommen können. Sollten Sie nicht mit uns feiern können, verstehen und akzeptieren wir das selbstverständlich von ganzem Herzen - wir bitten Sie nur, uns vorab zu informieren, damit ein schön gedeckter Platz am Tisch nicht umsonst wartet.",
+    "attending": "Ich bin dabei!",
+    "notAttending": "Ich kann nicht kommen",
+    "guestsTitle": "Angaben zum Gast",
+    "guestNamePlaceholder": "Name des Gastes {number}",
+    "guestNotesPlaceholder": "Lebensmittelallergien, Notizen...",
+    "requestTransfer": "Ich benötige einen Transfer",
+    "requestAccommodation": "Ich benötige eine Unterkunft",
+    "addGuest": "Weiteren Gast hinzufügen",
+    "submit": "Zusage senden",
+    "successTitle": "Vielen Dank für Ihre Rückmeldung!",
+    "successAttending": "Wir freuen uns darauf, mit Ihnen zu feiern!",
+    "successNotAttending": "Wir bedauern, dass Sie nicht mit uns feiern können."
+  },
+  "Info": {
+    "title": "Nützliche Informationen",
+    "subtitle": "Um Ihre Vorbereitung und Anreise so angenehm wie möglich zu gestalten.",
+    "accommodationTitle": "Empfohlene Unterkünfte",
+    "accommodationDesc": "Die Unterkunft kann auf eigene Kosten gebucht werden, bei Bedarf auch ab dem 5. Juni. Wenn Sie eine Unterkunft buchen möchten, geben Sie uns bitte bis zum 15. April 2026 Bescheid, da die Zimmer nur für eine begrenzte Zeit für uns reserviert sind und danach storniert werden.",
+    "accommodation1": "Villa Chardonnay Etyek",
+    "accommodation2": "Átrium Panzió",
+    "accommodation3": "Búzál Morócza Pincészet",
+    "transferTitle": "Transfer",
+    "transferDesc": "Für den Komfort unserer Gäste - damit Sie den Abend in vollen Zügen genießen können - bieten wir die Möglichkeit eines Transferservices an, dessen Gebühr von der Anzahl der gebuchten Plätze abhängt.",
+    "transferRsvp": "Bitte geben Sie Ihren Wunsch hierfür im Zusage-Bereich an, um die Organisation für uns zu erleichtern."
+  },
+  "DressCode": {
+    "title": "Dresscode",
+    "subtitle": "Wir bitten Sie, den Abend mit Ihrer Kleidung in sanften Pastellfarben zu verschönern.",
+    "styleTitle": "Der gewählte Stil:",
+    "styleName": "Garden Formal",
+    "forLadies": "Für die Damen",
+    "ladiesDesc": "Wenn Sie sich für ein Kleid entscheiden: ein elegantes Maxi- oder Midikleid",
+    "white": "Weiß",
+    "red": "Rot",
+    "black": "Schwarz",
+    "forGents": "Für die Herren",
+    "gentsDesc": "Smart-Casual-Kleidung: Sakko, Hemd, elegante Hose - eine Krawatte ist nicht erforderlich",
+    "colorInspiration": "Farbinspiration",
+    "showInspiration": "Inspirationsfotos anzeigen",
+    "pinterest": "Lassen Sie sich auf Pinterest inspirieren!"
+  },
+  "Gallery": {
+    "title": "Galerie",
+    "subtitle": "Einige unserer schönsten gemeinsamen Erinnerungen.",
+    "loading": "Die Galerie wird gerade aktualisiert..."
+  },
+  "Contact": {
+    "title": "Senden Sie uns eine Nachricht!",
+    "subtitle": "Wenn Sie Fragen haben oder einfach nur eine nette Nachricht senden möchten, können Sie dies hier tun.",
+    "nameLabel": "Ihr Name",
+    "namePlaceholder": "Wie ist Ihr Name?",
+    "emailLabel": "Ihre E-Mail",
+    "emailPlaceholder": "Wohin können wir eine Antwort senden?",
+    "messageLabel": "Ihre Nachricht",
+    "messagePlaceholder": "Schreiben Sie uns etwas Nettes...",
+    "sending": "Senden...",
+    "submit": "Nachricht senden",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    "successTitle": "Nachricht gesendet!",
+    "successDesc": "Vielen Dank! Wir werden bei Bedarf bald antworten."
+  },
+  "Footer": {
+    "title": "Wir können es kaum erwarten, Sie zu sehen!",
+    "subtitle": "Vielen Dank, dass Sie diesen wundervollen Tag mit uns feiern.",
+    "rights": "Alle Rechte vorbehalten.",
+    "createdBy": "Webseite erstellt von:",
+    "date": "6. Juni 2026"
+  }
+}

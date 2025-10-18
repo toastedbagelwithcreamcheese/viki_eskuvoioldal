@@ -1,18 +1,15 @@
-// next.config.mjs
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./i18n.js');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com', // Ezt meghagyhatjuk, ha esetleg használnád
-      },
-      {
-        protocol: 'https',
-        hostname: 'ortpmfnrnxsmszvslxpf.supabase.co', 
-      },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'ortpmfnrnxsmszvslxpf.supabase.co' },
     ],
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

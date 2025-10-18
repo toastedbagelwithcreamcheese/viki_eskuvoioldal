@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "_rsc_messages_hu_json";
+exports.ids = ["_rsc_messages_hu_json"];
+exports.modules = {
+
+/***/ "(rsc)/./messages/hu.json":
+/*!**************************!*\
+  !*** ./messages/hu.json ***!
+  \**************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"Metadata":{"title":"Viktória & Tomi Esküvője","description":"Szeretettel meghívunk az esküvőnkre!"},"Navbar":{"initials":"V & T","home":"Kezdőlap","venue":"Helyszín","rsvp":"Visszajelzés","info":"Információk","dresscode":"Dress Code","gallery":"Galéria","contact":"Üzenet"},"Hero":{"date":"2026. Június 6.","days":"Nap","hours":"Óra","minutes":"Perc","seconds":"Másodperc"},"Venue":{"title":"A Nagy Nap Helyszíne","subtitle":"Szeretettel várunk Benneteket az Etyeki Czímeres Birtokon!","locationTitle":"Helyszín","locationName":"Etyeki Czímeres Birtok","locationAddress":"2091 Etyek, Sóskúti út","scheduleTitle":"Programok","scheduleArrival":"Vendégvárás","scheduleCeremony":"Ceremónia","scheduleDinner":"Vacsora","directions":"Útvonaltervezés Google Maps-szel"},"Rsvp":{"title":"Visszajelzés","description":"Kérjük, hogy részvételi szándékotokat legkésőbb 2026. március 20-ig jelezzétek. Ha úgy alakul, hogy nem tudtok velünk ünnepelni, természetesen teljes szívvel megértjük és elfogadjuk - arra kérünk, jelezzétek előre, hogy ne várjon hiába egy szépen megterített hely az asztalnál.","attending":"Ott leszek!","notAttending":"Nem tudok menni","guestsTitle":"Vendégek adatai","guestNamePlaceholder":"Vendég {number} neve","guestNotesPlaceholder":"Ételallergia, megjegyzés...","requestTransfer":"Transzfert kérek","requestAccommodation":"Szállást kérek","addGuest":"Új vendég hozzáadása","submit":"Visszajelzés elküldése","successTitle":"Köszönjük a visszajelzésed!","successAttending":"Szeretettel várunk a nagy napon!","successNotAttending":"Sajnáljuk, hogy nem tudsz velünk ünnepelni."},"Info":{"title":"Hasznos Információk","subtitle":"Hogy a készülődés és az utazás a lehető legkényelmesebb legyen számotokra.","accommodationTitle":"Ajánlott Szállások","accommodationDesc":"Szállás saját költségen foglalható igény esetén akár június 5-től is. Ha szeretnétek szállást, kérünk Benneteket, legkésőbb 2026 április 15-ig jelezzétek, mivel a helyeket csak korlátozott időre tartják fent számunkra, ezután lemondásra kerül.","accommodation1":"Villa Chardonnay Etyek","accommodation2":"Átrium Panzió","accommodation3":"Búzál Morócza Pincészet","transferTitle":"Transzfer","transferDesc":"Vendégeink kényelme érdekében - hogy maximálisan élvezhessétek az estét - igény esetén lehetöséget biztosítunk transferszolgálat igénybevételére, melynek díja a foglalt helyek számától függ.","transferRsvp":"Az ezzel kapcsolatos igényeteket kérjük, az RSVP szekcióban jelezzétek, hogy a szervezést gördülékennyé tegyétek számunkra."},"DressCode":{"title":"Dress Code","subtitle":"Kérünk Benneteket, hogy öltözéketekkel is emeljétek az este fényét, lágy pasztell színekkel.","styleTitle":"A választott stílus:","styleName":"Garden Formal","forLadies":"Hölgyeknek","ladiesDesc":"Ha ruhára esne a választás: elegáns maxi vagy midi ruha","white":"Fehér","red":"Piros","black":"Fekete","forGents":"Uraknak","gentsDesc":"Szolidan elegáns (smart casual) öltözet: zakó, ing, elegáns nadrág - nyakkendő nem kötelező","colorInspiration":"Szín inspiráció","showInspiration":"Inspirációs képek mutatása","pinterest":"Inspirálódj a Pinteresten!"},"Gallery":{"title":"Galéria","subtitle":"Néhány kedves közös emlékünk.","loading":"A galéria feltöltés alatt..."},"Contact":{"title":"Üzenj nekünk!","subtitle":"Ha bármi kérdésetek van, vagy csak egy kedves üzenetet küldenétek, itt megtehetitek.","nameLabel":"Neved","namePlaceholder":"Hogy hívnak?","emailLabel":"E-mail címed","emailPlaceholder":"hova küldhetjük a választ?","messageLabel":"Üzeneted","messagePlaceholder":"Írj nekünk valami kedveset...","sending":"Küldés...","submit":"Üzenet küldése","error":"Hiba történt. Kérjük, próbáld újra később.","successTitle":"Üzenet elküldve!","successDesc":"Köszönjük szépen! Hamarosan válaszolunk, ha szükséges."},"Footer":{"title":"Szeretettel várunk!","subtitle":"Köszönjük, hogy velünk ünnepelsz ezen a csodálatos napon.","rights":"Minden jog fenntartva.","createdBy":"Az oldalt készítette:","date":"2026. Június 6."}}');
+
+/***/ })
+
+};
+;

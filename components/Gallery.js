@@ -1,4 +1,3 @@
-// components/Gallery.js
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -7,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { Camera } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -17,6 +17,7 @@ export default function Gallery() {
   const [images, setImages] = useState([]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const t = useTranslations('Gallery');
 
   useEffect(() => {
     async function fetchImages() {
@@ -32,10 +33,12 @@ export default function Gallery() {
       }
 
       const imageUrls = data.map(file => {
-        const { data: { publicUrl } } = supabase.storage.from('gallery').getPublicUrl(file.name);
+        const { data: { publicUrl } } = supabase.storage
+          .from('gallery')
+          .getPublicUrl(file.name);
         return { src: publicUrl, name: file.name };
       });
-      
+
       setImages(imageUrls);
     }
 
@@ -50,6 +53,7 @@ export default function Gallery() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-6xl">
+        {/* Cím és leírás */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,12 +62,13 @@ export default function Gallery() {
           className="text-center"
         >
           <Camera className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-800">Galéria</h2>
-          <p className="text-lg text-gray-600 mt-4">
-            Néhány kedves közös emlékünk.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-800">
+            {t('title')}
+          </h2>
+          <p className="text-lg text-gray-600 mt-4">{t('subtitle')}</p>
         </motion.div>
 
+        {/* Galéria képek vagy üzenet */}
         {images.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
             {images.map((image, index) => (
@@ -78,7 +83,7 @@ export default function Gallery() {
               >
                 <Image
                   src={image.src}
-                  alt={`Galéria kép ${index + 1}`}
+                  alt={`${t('title')} ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
@@ -89,15 +94,16 @@ export default function Gallery() {
           </div>
         ) : (
           <div className="text-center mt-12 text-gray-500">
-            <p>A galéria feltöltés alatt...</p>
+            <p>{t('loading')}</p>
           </div>
         )}
 
+        {/* Lightbox megjelenítése */}
         <Lightbox
-            open={lightboxOpen}
-            close={() => setLightboxOpen(false)}
-            slides={images}
-            index={lightboxIndex}
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={images}
+          index={lightboxIndex}
         />
       </div>
     </section>
