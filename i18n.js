@@ -1,14 +1,21 @@
 import { getRequestConfig } from 'next-intl/server';
-import path from 'path';
-import fs from 'fs';
+
+// 🔹 Statikus importok, hogy a Next.js build beágyazza őket
+import hu from './messages/hu.json';
+import en from './messages/en.json';
+import de from './messages/de.json';
 
 export default getRequestConfig(async ({ locale }) => {
   const safeLocale = ['hu', 'en', 'de'].includes(locale) ? locale : 'hu';
-  const filePath = path.join(process.cwd(), 'messages', `${safeLocale}.json`);
-  const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+  const messages = {
+    hu,
+    en,
+    de
+  };
 
   return {
     locale: safeLocale,
-    messages,
+    messages: messages[safeLocale] || messages.hu
   };
 });
