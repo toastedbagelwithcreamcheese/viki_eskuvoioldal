@@ -3,6 +3,11 @@ import { notFound } from 'next/navigation';
 import { Playfair_Display, Inter } from 'next/font/google';
 import '../globals.css';
 
+// 🔹 Statikus importok – így a JSON-ok beépülnek a buildbe
+import hu from '../../messages/hu.json';
+import en from '../../messages/en.json';
+import de from '../../messages/de.json';
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-heading',
@@ -19,16 +24,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const { locale } = await params;
+  const locale = params?.locale || 'hu';
 
   if (!['hu', 'en', 'de'].includes(locale)) notFound();
 
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
+  // 🔹 Statikusan betöltött üzenetek
+  const messages = { hu, en, de }[locale] || hu;
 
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
