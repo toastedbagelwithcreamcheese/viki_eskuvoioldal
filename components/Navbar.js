@@ -102,7 +102,7 @@ export default function Navbar() {
               </button>
             ))}
 
-            {/* Zászlós Nyelvválasztó */}
+            {/* Zászlós Nyelvválasztóó */}
             <div className="relative ml-4 border-l border-border pl-4" ref={langMenuRef}>
               <button
                 onClick={() => setShowLangMenu(!showLangMenu)}
