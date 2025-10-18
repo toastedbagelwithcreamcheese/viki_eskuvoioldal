@@ -20,18 +20,24 @@
     "minutes": "Perc",
     "seconds": "Másodperc"
   },
-  "Venue": {
-    "title": "A Nagy Nap Helyszíne",
-    "subtitle": "Szeretettel várunk Benneteket az Etyeki Czímeres Birtokon!",
-    "locationTitle": "Helyszín",
-    "locationName": "Etyeki Czímeres Birtok",
-    "locationAddress": "2091 Etyek, Sóskúti út",
-    "scheduleTitle": "Programok",
-    "scheduleArrival": "Vendégvárás",
-    "scheduleCeremony": "Ceremónia",
-    "scheduleDinner": "Vacsora",
-    "directions": "Útvonaltervezés Google Maps-szel"
-  },
+"Venue": {
+  "title": "A Nagy Nap Helyszíne",
+  "subtitle": "Szeretettel várunk Benneteket az Etyeki Czímeres Birtokon!",
+  "locationTitle": "Helyszín",
+  "locationName": "Etyeki Czímeres Birtok",
+  "locationAddress": "2091 Etyek, Sóskúti út",
+  "scheduleTitle": "Programok",
+  "scheduleArrival": "Vendégvárás",
+  "scheduleCeremony": "Ceremónia",
+  "scheduleDinner": "Vacsora",
+  "directions": "Útvonaltervezés Google Maps-szel",
+  "venueName": "Etyeki Czímeres Birtok",
+  "venueAddress": "2091 Etyek, Sóskúti út",
+  "programsTitle": "Programok",
+  "welcome": "Vendégvárás",
+  "ceremony": "Ceremónia",
+  "dinner": "Vacsora"
+},
   "Rsvp": {
     "title": "Visszajelzés",
     "description": "Kérjük, hogy részvételi szándékotokat legkésőbb 2026. március 20-ig jelezzétek. Ha úgy alakul, hogy nem tudtok velünk ünnepelni, természetesen teljes szívvel megértjük és elfogadjuk - arra kérünk, jelezzétek előre, hogy ne várjon hiába egy szépen megterített hely az asztalnál.",
