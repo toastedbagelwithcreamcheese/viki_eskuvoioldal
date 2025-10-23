@@ -1,3 +1,4 @@
+// app/admin/layout.js
 export const metadata = {
   title: 'Admin',
 };

@@ -1,3 +1,4 @@
+// app/login/layout.js
 export const metadata = {
   title: "Bejelentkezés",
 };
