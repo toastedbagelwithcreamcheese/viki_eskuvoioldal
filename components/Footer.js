@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="mt-10 border-t border-border pt-8">
           <p className="font-heading text-2xl text-foreground">Viktória & Tomi</p>
           <p className="mt-1 text-sm text-muted-foreground tracking-widest">
-            2026. {t('date')}
+            {t('date')}
           </p>
           <p className="mt-6 text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Viktória & Tomi. {t('rights')}
