@@ -63,6 +63,7 @@ export default function RsvpForm() {
     e.preventDefault();
     setStatus('sending');
 
+    // 1. Létrehozzuk az RSVP főbejegyzést
     const { data: rsvpData, error: rsvpError } = await supabase
       .from('rsvps')
       .insert({ is_attending: isAttending })
@@ -75,14 +76,17 @@ export default function RsvpForm() {
       return;
     }
 
-    if (isAttending && guests.some((g) => g.name.trim() !== '')) {
+    // 2. MENTJÜK A VENDÉGEKET AKKOR IS, HA NEM JÖNNEK (isAttending check törölve innen)
+    // Csak azokat mentjük, akiknek van neve
+    if (guests.some((g) => g.name.trim() !== '')) {
       const guestsToInsert = guests
         .filter((g) => g.name.trim() !== '')
         .map((guest) => ({
           rsvp_id: rsvpData.id,
           name: guest.name,
-          needs_transfer: guest.needs_transfer,
-          needs_accommodation: guest.needs_accommodation,
+          // Ha nem jönnek, a transzfer/szállás automatikusan false marad
+          needs_transfer: isAttending ? guest.needs_transfer : false,
+          needs_accommodation: isAttending ? guest.needs_accommodation : false,
           notes: guest.notes
         }));
 
@@ -128,6 +132,7 @@ export default function RsvpForm() {
       animate={{ opacity: 1 }}
       className="space-y-8 p-8 bg-white/80 backdrop-blur-xl rounded-xl shadow-lg max-w-2xl mx-auto"
     >
+      {/* IGEN / NEM Gombok */}
       <div className="grid grid-cols-2 gap-4">
         <button
           type="button"
@@ -153,63 +158,77 @@ export default function RsvpForm() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {isAttending && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="space-y-6"
-          >
-            <div>
-              <label className="block text-lg font-semibold text-gray-800 mb-4">
-                {t('guestsTitle')}
-              </label>
-              <div className="space-y-4">
-                {guests.map((guest, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 border rounded-lg bg-gray-50/50 space-y-4"
-                  >
-                    <div className="flex items-center gap-3">
-                      <User className="text-gray-400 flex-shrink-0" />
-                      <input
-                        type="text"
-                        placeholder={t('guestNamePlaceholder', {
-                          number: index + 1
-                        })}
-                        value={guest.name}
-                        onChange={(e) =>
-                          handleGuestChange(index, 'name', e.target.value)
-                        }
-                        className="w-full p-2 border-b-2 bg-transparent focus:outline-none focus:border-emerald-400 font-medium"
-                        required
-                      />
-                      {guests.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => removeGuest(index)}
-                          className="text-gray-400 hover:text-red-500"
-                        >
-                          <Trash2 size={18} />
-                        </button>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MessageSquare className="text-gray-400 flex-shrink-0" />
-                      <input
-                        type="text"
-                        placeholder={t('guestNotesPlaceholder')}
-                        value={guest.notes}
-                        onChange={(e) =>
-                          handleGuestChange(index, 'notes', e.target.value)
-                        }
-                        className="w-full p-2 border-b-2 bg-transparent focus:outline-none focus:border-emerald-400 text-sm"
-                      />
-                    </div>
-                    <div className="flex items-center justify-around pt-2 text-sm text-gray-600">
+      {/* Vendéglista - Most már mindig látható, nem csak ha isAttending=true */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="space-y-6"
+      >
+        <div>
+          <label className="block text-lg font-semibold text-gray-800 mb-4">
+            {/* Dinamikus cím attól függően, hogy jönnek-e */}
+            {isAttending ? t('guestsTitle') : "Kik nem tudnak eljönni?"}
+          </label>
+          
+          <div className="space-y-4">
+            {guests.map((guest, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`p-4 border rounded-lg space-y-4 ${
+                  isAttending ? 'bg-gray-50/50' : 'bg-rose-50/30 border-rose-100'
+                }`}
+              >
+                {/* Név megadása */}
+                <div className="flex items-center gap-3">
+                  <User className={`flex-shrink-0 ${isAttending ? 'text-gray-400' : 'text-rose-300'}`} />
+                  <input
+                    type="text"
+                    placeholder={t('guestNamePlaceholder', {
+                      number: index + 1
+                    })}
+                    value={guest.name}
+                    onChange={(e) =>
+                      handleGuestChange(index, 'name', e.target.value)
+                    }
+                    className="w-full p-2 border-b-2 bg-transparent focus:outline-none focus:border-emerald-400 font-medium"
+                    required
+                  />
+                  {guests.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeGuest(index)}
+                      className="text-gray-400 hover:text-red-500"
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Megjegyzés mező */}
+                <div className="flex items-center gap-3">
+                  <MessageSquare className={`flex-shrink-0 ${isAttending ? 'text-gray-400' : 'text-rose-300'}`} />
+                  <input
+                    type="text"
+                    placeholder={t('guestNotesPlaceholder')}
+                    value={guest.notes}
+                    onChange={(e) =>
+                      handleGuestChange(index, 'notes', e.target.value)
+                    }
+                    className="w-full p-2 border-b-2 bg-transparent focus:outline-none focus:border-emerald-400 text-sm"
+                  />
+                </div>
+
+                {/* Szállás és Transzfer - CSAK AKKOR HA JÖNNEK */}
+                <AnimatePresence>
+                  {isAttending && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="flex items-center justify-around pt-2 text-sm text-gray-600 overflow-hidden"
+                    >
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"
@@ -240,27 +259,34 @@ export default function RsvpForm() {
                         />{' '}
                         {t('requestAccommodation')}
                       </label>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <button
-                type="button"
-                onClick={addGuest}
-                className="flex items-center gap-2 text-emerald-700 mt-4 hover:underline"
-              >
-                <Plus className="w-4 h-4" /> {t('addGuest')}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+          
+          <button
+            type="button"
+            onClick={addGuest}
+            className={`flex items-center gap-2 mt-4 hover:underline ${
+               isAttending ? 'text-emerald-700' : 'text-rose-700'
+            }`}
+          >
+            <Plus className="w-4 h-4" /> {t('addGuest')}
+          </button>
+        </div>
+      </motion.div>
 
       <div className="text-center">
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold shadow-md text-white bg-gradient-to-r from-emerald-500 to-emerald-600 hover:to-emerald-700 transition-all"
+          className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold shadow-md text-white transition-all ${
+             isAttending 
+             ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:to-emerald-700'
+             : 'bg-gradient-to-r from-rose-500 to-rose-600 hover:to-rose-700'
+          }`}
         >
           {status === 'sending' ? <SpinnerIcon /> : t('submit')}
         </button>

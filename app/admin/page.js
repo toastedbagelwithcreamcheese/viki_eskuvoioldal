@@ -1,7 +1,6 @@
-// app/admin/page.js
 import { createClient } from '@supabase/supabase-js';
 import ImageManager from '../../components/ImageManager';
-import MessageManager from '../../components/MessageManager'; // Üzenetkezelő komponens
+import MessageManager from '../../components/MessageManager';
 
 export default async function RsvpAdminPage({ searchParams }) {
   // 🔹 Megvárjuk, amíg a searchParams elérhető lesz
@@ -26,7 +25,7 @@ export default async function RsvpAdminPage({ searchParams }) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 
-  // 🔸 Adatok lekérése az adatbázisból
+  // 🔸 Adatok lekérése
   const { data: rsvps, error: rsvpsError } = await supabase
     .from('rsvps')
     .select('*, guests(*)')
@@ -41,11 +40,20 @@ export default async function RsvpAdminPage({ searchParams }) {
     return <p className="text-center mt-8 text-red-600">Hiba a betöltés közben.</p>;
 
   // 🧮 Összesített statisztikák
-  const allGuests = rsvps.flatMap(r => (r.is_attending ? r.guests : []));
-  const totalAttending = allGuests.length;
-  const totalNotAttending = rsvps.filter(r => !r.is_attending).length;
-  const totalTransfer = allGuests.filter(g => g.needs_transfer).length;
-  const totalAccommodation = allGuests.filter(g => g.needs_accommodation).length;
+  
+  // Jönnek
+  const attendingGuests = rsvps.flatMap(r => (r.is_attending ? r.guests : []));
+  // Nem jönnek (de megadtak nevet)
+  const notAttendingGuests = rsvps.flatMap(r => (!r.is_attending ? r.guests : []));
+  // Nem jönnek (régi típusú, név nélküli "csoport" bejegyzések)
+  const notAttendingGroupsCount = rsvps.filter(r => !r.is_attending && r.guests.length === 0).length;
+
+  const totalAttending = attendingGuests.length;
+  // Összes nem jövő = a névvel rendelkezők + a név nélküli csoportok (itt 1 főnek számoljuk a csoportot becslésként, vagy ahogy szeretnéd)
+  const totalNotAttending = notAttendingGuests.length + notAttendingGroupsCount; 
+  
+  const totalTransfer = attendingGuests.filter(g => g.needs_transfer).length;
+  const totalAccommodation = attendingGuests.filter(g => g.needs_accommodation).length;
 
   // 📊 Megjelenítés
   return (
@@ -59,7 +67,7 @@ export default async function RsvpAdminPage({ searchParams }) {
           <p className="text-3xl font-bold text-emerald-900">{totalAttending}</p>
         </div>
         <div className="p-4 bg-rose-100 rounded-lg">
-          <p className="font-semibold text-rose-800">Nem jön (csoport):</p>
+          <p className="font-semibold text-rose-800">Nem jön (fő):</p>
           <p className="text-3xl font-bold text-rose-900">{totalNotAttending}</p>
         </div>
         <div className="p-4 bg-sky-100 rounded-lg">
@@ -84,55 +92,77 @@ export default async function RsvpAdminPage({ searchParams }) {
           <thead className="border-b bg-gray-50">
             <tr>
               <th className="px-6 py-4 font-semibold">Név</th>
-              <th className="px-6 py-4 font-semibold text-center">Transzfert kér?</th>
-              <th className="px-6 py-4 font-semibold text-center">Szállást kér?</th>
-              <th className="px-6 py-4 font-semibold">Személyes megjegyzés</th>
-              <th className="px-6 py-4 font-semibold">Visszajelzés ideje</th>
+              <th className="px-6 py-4 font-semibold text-center">Státusz</th>
+              <th className="px-6 py-4 font-semibold text-center">Transzfer</th>
+              <th className="px-6 py-4 font-semibold text-center">Szállás</th>
+              <th className="px-6 py-4 font-semibold">Megjegyzés</th>
+              <th className="px-6 py-4 font-semibold">Időpont</th>
             </tr>
           </thead>
           <tbody>
-            {rsvps.map(rsvp =>
-              rsvp.is_attending ? (
-                rsvp.guests.map(guest => (
-                  <tr key={guest.id} className="border-b hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium">{guest.name}</td>
-                    <td className="px-6 py-4 text-center">
-                      {guest.needs_transfer ? '✅' : '❌'}
+            {rsvps.map(rsvp => {
+              // Ha vannak vendégnevek (akár jönnek, akár nem)
+              if (rsvp.guests && rsvp.guests.length > 0) {
+                return rsvp.guests.map(guest => (
+                  <tr 
+                    key={guest.id} 
+                    className={`border-b ${rsvp.is_attending ? 'hover:bg-gray-50' : 'bg-rose-50 hover:bg-rose-100 text-rose-900'}`}
+                  >
+                    <td className="px-6 py-4 font-medium">
+                      {guest.name}
                     </td>
                     <td className="px-6 py-4 text-center">
-                      {guest.needs_accommodation ? '✅' : '❌'}
+                      {rsvp.is_attending ? (
+                        <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Jön</span>
+                      ) : (
+                        <span className="px-2 py-1 bg-rose-200 text-rose-800 rounded-full text-xs">Nem jön</span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      {/* Ha nem jön, nincs értelme transzfert mutatni */}
+                      {rsvp.is_attending ? (guest.needs_transfer ? '✅' : '❌') : '-'}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                       {/* Ha nem jön, nincs értelme szállást mutatni */}
+                      {rsvp.is_attending ? (guest.needs_accommodation ? '✅' : '❌') : '-'}
                     </td>
                     <td className="px-6 py-4">{guest.notes || '-'}</td>
-                    <td className="px-6 py-4 text-gray-500">
+                    <td className="px-6 py-4 text-gray-500 text-xs">
                       {new Date(rsvp.created_at).toLocaleString('hu-HU')}
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr key={rsvp.id} className="border-b bg-rose-50 hover:bg-rose-100">
-                  <td
-                    className="px-6 py-4 text-rose-700 italic"
-                    colSpan="4"
-                  >
-                    Egy csoport jelezte, hogy nem tud eljönni.
-                  </td>
-                  <td className="px-6 py-4 text-gray-500">
-                    {new Date(rsvp.created_at).toLocaleString('hu-HU')}
-                  </td>
-                </tr>
-              )
+                ));
+              } 
+              
+              // Ha NINCSENEK vendégnevek, de az RSVP 'Nem jön' (Régi adatok kompatibilitása)
+              else if (!rsvp.is_attending) {
+                return (
+                  <tr key={rsvp.id} className="border-b bg-rose-50 hover:bg-rose-100">
+                    <td className="px-6 py-4 text-rose-700 italic font-medium">
+                      Név nélküli lemondás
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="px-2 py-1 bg-rose-200 text-rose-800 rounded-full text-xs">Nem jön</span>
+                    </td>
+                    <td className="px-6 py-4 text-center">-</td>
+                    <td className="px-6 py-4 text-center">-</td>
+                    <td className="px-6 py-4">-</td>
+                    <td className="px-6 py-4 text-gray-500 text-xs">
+                      {new Date(rsvp.created_at).toLocaleString('hu-HU')}
+                    </td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
+            
+            {rsvps.length === 0 && (
+              <tr>
+                <td colSpan="6" className="text-center p-8 text-gray-500">
+                  Még nem érkezett visszajelzés.
+                </td>
+              </tr>
             )}
-            {allGuests.length === 0 &&
-              rsvps.filter(r => !r.is_attending).length === 0 && (
-                <tr>
-                  <td
-                    colSpan="5"
-                    className="text-center p-8 text-gray-500"
-                  >
-                    Még nem érkezett visszajelzés.
-                  </td>
-                </tr>
-              )}
           </tbody>
         </table>
       </div>
