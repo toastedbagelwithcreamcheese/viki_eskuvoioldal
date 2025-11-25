@@ -45,6 +45,7 @@
     "attending": "Ott leszek!",
     "notAttending": "Nem tudok menni",
     "guestsTitle": "Vendégek adatai",
+    "guestsTitleNotAttending": "Kik nem tudnak eljönni?",
     "guestNamePlaceholder": "Vendég {number} neve",
     "guestNotesPlaceholder": "Ételallergia, megjegyzés...",
     "requestTransfer": "Transzfert kérek",

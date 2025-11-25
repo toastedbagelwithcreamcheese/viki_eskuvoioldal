@@ -45,6 +45,7 @@
     "attending": "Ich bin dabei!",
     "notAttending": "Ich kann nicht kommen",
     "guestsTitle": "Angaben zum Gast",
+    "guestsTitleNotAttending": "Wer kann nicht kommen?",
     "guestNamePlaceholder": "Name des Gastes {number}",
     "guestNotesPlaceholder": "Lebensmittelallergien, Notizen...",
     "requestTransfer": "Ich benötige einen Transfer",

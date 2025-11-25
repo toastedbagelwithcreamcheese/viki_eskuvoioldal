@@ -167,7 +167,7 @@ export default function RsvpForm() {
         <div>
           <label className="block text-lg font-semibold text-gray-800 mb-4">
             {/* Dinamikus cím attól függően, hogy jönnek-e */}
-            {isAttending ? t('guestsTitle') : "Kik nem tudnak eljönni?"}
+            {isAttending ? t('guestsTitle') : t('guestsTitleNotAttending')}
           </label>
           
           <div className="space-y-4">

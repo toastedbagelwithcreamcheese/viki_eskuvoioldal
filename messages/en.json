@@ -45,6 +45,7 @@
     "attending": "I'll be there!",
     "notAttending": "I can't make it",
     "guestsTitle": "Guest Details",
+    "guestsTitleNotAttending": "Who can't make it?",
     "guestNamePlaceholder": "Guest {number} Name",
     "guestNotesPlaceholder": "Food allergies, notes...",
     "requestTransfer": "I need a transfer",
