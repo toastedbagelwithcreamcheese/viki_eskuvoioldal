@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@supabase/supabase-js';
-import { Check, Loader2, Plus, Trash2, User, MessageSquare } from 'lucide-react';
+import { Check, Loader2, Plus, Trash2, User, MessageSquare, Hotel } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -112,15 +113,35 @@ export default function RsvpForm() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center py-10 rounded-xl shadow-xl max-w-2xl mx-auto"
+        className="text-center py-10 rounded-xl shadow-xl max-w-2xl mx-auto bg-white/90 backdrop-blur"
       >
         <SuccessIcon />
         <h3 className="text-3xl font-serif mt-4 text-emerald-700">
           {t('successTitle')}
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 mb-8">
           {isAttending ? t('successAttending') : t('successNotAttending')}
         </p>
+
+        {/* ÚJ RÉSZ: Gomb a szállásfoglaláshoz, ha jönnek */}
+        {isAttending && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <p className="text-sm text-gray-500 mb-3">
+              Szeretnél szállást foglalni a helyszínen?
+            </p>
+            <Link 
+              href="/booking"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-full font-semibold shadow-md transition-all transform hover:scale-105"
+            >
+              <Hotel className="w-5 h-5" />
+              Tovább a szobákhoz
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     );
   }
