@@ -3,55 +3,56 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hotel, Bus, ArrowRight, AlertTriangle, X, Info as InfoIcon, ExternalLink, CheckCircle2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-
-// Kibővített szállás adatok a modálishoz
-const accommodations = [
-  {
-    id: 'villa',
-    name: 'Villa Chardonnay Etyek',
-    shortDesc: '3-4 fős szobák, egységes árazás.',
-    description: 'A Villa Chardonnay Etyek kényelmes szobákkal várja vendégeit. Reggelire sajnos nincs lehetőség, de a vendégek használhatják a teljesen felszerelt közös konyhát önellátásra.',
-    features: [
-      'Bejelentkezés: 15:00 órától',
-      'Kijelentkezés: 10:00 óráig (vasárnap délelőtt)',
-      'Babaágy / 6 év alatti gyermek: díjmentes',
-      'Maximum 3-4 fő szobánként'
-    ],
-    link: 'https://villaetyek.hu/',
-    images: [
-      '/villa2.png',
-      '/villa1.png'
-    ]
-  },
-  {
-    id: 'flamingo',
-    name: 'Flamingó Borház és Panzió',
-    shortDesc: '2 és 3 fős szobák, étkezés és wellness.',
-    description: 'A Flamingó Borház standard szobákat kínál dinamikus árazással. A panzióban nincs főzési lehetőség (poharak rendelkezésre állnak). Bor, kávé és üdítő itallap alapján kérhető, a behozott alkoholos italokért 650 Ft/palack szervízdíjat számolnak fel.',
-    features: [
-      'Idegenforgalmi adó (IFA): 600 Ft/fő/éj (18 év felett)',
-      'Bejelentkezés: 15:00-tól (Korábbi érkezés 1.000 Ft/fő/óra)',
-      'Kijelentkezés: 10:00-ig (Késői távozás 1.000 Ft/óra, max 14:00)',
-      'Wellness használat: Minden nap 22:00-ig ingyenes',
-      'Reggeli (min. 6 főtől): Büféreggeli 5.000 Ft/fő/nap',
-      'Vacsora: Falusi tál 2 személyre 15.000 Ft',
-      'Masszázs: Lomilomi (Hawaii) 60 perc - 15.000 Ft',
-      'Helyszíni fizetés: Készpénz, Bankkártya, SZÉP Kártya'
-    ],
-    link: 'https://flamingopanzioesborhaz.hu',
-    programsLink: 'https://flamingopanzioesborhaz.hu/latnivalok/',
-    images: [
-      '/flamingo2.png',
-      '/flamingo1.png'
-    ]
-  },
-];
 
 export default function Info() {
   const t = useTranslations('Info');
+  const locale = useLocale(); // <-- Lekérjük az aktuális nyelvet a linkeléshez
   const [selectedAcc, setSelectedAcc] = useState(null);
+
+  // A szállások adatait áthoztuk ide, hogy a t() működjön rajtuk
+  const accommodations = [
+    {
+      id: 'villa',
+      name: t('villaName'),
+      shortDesc: t('villaShortDesc'),
+      description: t('villaDesc'),
+      features: [
+        t('villaF1'),
+        t('villaF2'),
+        t('villaF3'),
+        t('villaF4')
+      ],
+      link: 'https://villaetyek.hu/',
+      images: [
+        '/villa2.png',
+        '/villa1.png'
+      ]
+    },
+    {
+      id: 'flamingo',
+      name: t('flamingoName'),
+      shortDesc: t('flamingoShortDesc'),
+      description: t('flamingoDesc'),
+      features: [
+        t('flamingoF1'),
+        t('flamingoF2'),
+        t('flamingoF3'),
+        t('flamingoF4'),
+        t('flamingoF5'),
+        t('flamingoF6'),
+        t('flamingoF7'),
+        t('flamingoF8')
+      ],
+      link: 'https://flamingopanzioesborhaz.hu',
+      programsLink: 'https://flamingopanzioesborhaz.hu/latnivalok/',
+      images: [
+        '/flamingo2.png',
+        '/flamingo1.png'
+      ]
+    },
+  ];
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/20 relative">
@@ -89,7 +90,11 @@ export default function Info() {
               <div className="mb-6 p-4 bg-rose-50 border border-rose-200 rounded-xl flex gap-3 shadow-sm">
                 <AlertTriangle className="text-rose-600 w-6 h-6 flex-shrink-0 mt-1" />
                 <div className="text-sm text-rose-900 leading-relaxed">
-                  <strong>Fontos határidő:</strong> A helyeket csak korlátozott ideig tartják fent számunkra! Kérjük, foglalási szándékotokat legkésőbb <strong className="text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded font-bold">2026. április 15-ig</strong> jelezzétek, ezután az opció törlésre kerül.
+                  <strong>{t('deadlineWarningTitle')}</strong> {t('deadlineWarningTextPre')}
+                  <strong className="text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded font-bold">
+                    {t('deadlineWarningDate')}
+                  </strong> 
+                  {t('deadlineWarningTextPost')}
                 </div>
               </div>
 
@@ -115,11 +120,12 @@ export default function Info() {
               </ul>
             </div>
             
+            {/* FIGYELEM: Itt már a locale-val fűzött link van! */}
             <Link 
-              href="/booking"
+              href={`/${locale}/booking`}
               className="mt-4 w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gray-900 hover:bg-gray-800 text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg"
             >
-              Tovább a szobafoglaláshoz <ArrowRight size={18} />
+              {t('toBookingBtn')} <ArrowRight size={18} />
             </Link>
           </motion.div>
 
@@ -182,7 +188,7 @@ export default function Info() {
                   {selectedAcc.description}
                 </p>
 
-                <h4 className="font-bold text-gray-800 mb-3 text-lg">Hasznos információk</h4>
+                <h4 className="font-bold text-gray-800 mb-3 text-lg">{t('usefulInfo')}</h4>
                 <ul className="space-y-2 mb-8 bg-gray-50 p-4 rounded-xl border border-gray-100">
                   {selectedAcc.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -194,16 +200,21 @@ export default function Info() {
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100 flex-wrap">
                   <a href={selectedAcc.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl transition-colors text-sm">
-                    Eredeti weboldal <ExternalLink size={16} />
+                    {t('originalWebsite')} <ExternalLink size={16} />
                   </a>
                   {selectedAcc.programsLink && (
                     <a href={selectedAcc.programsLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 font-semibold rounded-xl transition-colors text-sm border border-sky-100">
-                      Programok és Látnivalók <ExternalLink size={16} />
+                      {t('programsLink')} <ExternalLink size={16} />
                     </a>
                   )}
                   
-                  <Link href="/booking" onClick={() => setSelectedAcc(null)} className="flex items-center justify-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-sm w-full sm:w-auto sm:ml-auto">
-                    Kiválasztom <ArrowRight size={18} />
+                  {/* FIGYELEM: Itt is a locale-val fűzött link van! */}
+                  <Link 
+                    href={`/${locale}/booking`} 
+                    onClick={() => setSelectedAcc(null)} 
+                    className="flex items-center justify-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-sm w-full sm:w-auto sm:ml-auto"
+                  >
+                    {t('selectBtn')} <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>

@@ -18,6 +18,11 @@
       "static/css/app/[locale]/page.css",
       "static/chunks/app/[locale]/page.js"
     ],
+    "/[locale]/booking/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/booking/page.js"
+    ],
     "/login/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

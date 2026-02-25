@@ -18,7 +18,10 @@
       "assets": [],
       "env": {
         "__NEXT_BUILD_ID": "development",
-        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "DK8GZ6X4+DNvBqgWWvaw7ohrz6HcCievz+Ta2+ufaDw="
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "DK8GZ6X4+DNvBqgWWvaw7ohrz6HcCievz+Ta2+ufaDw=",
+        "__NEXT_PREVIEW_MODE_ID": "4659423be3614a3d306a8deef5324462",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "67824dda23530dd99480ddb0527a0e3437180cc1d683aafd933002dc1b3557e4",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "4ff47c4c3908788383835dcf3b76339471b5fc4742aef001b30195bb7d37d657"
       }
     }
   },
