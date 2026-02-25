@@ -196,7 +196,7 @@
     "btnFinalize": "Buchung abschließen",
     "errTaken": "Leider wurde dieses Zimmer gerade gebucht. Bitte wählen Sie ein anderes!",
     "errUnexpected": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut!",
-    "villaDiscount": "Bei einem Aufenthalt von 2 Nächten bieten wir 20% Rabatt auf den Zimmerpreis! (36.000 HUF / Nacht)",
+    "twoNightsDiscount": "Bei einem Aufenthalt von 2 Nächten bieten wir 20% Rabatt auf den Zimmerpreis!",
     "discountLabel": "(-20%)"
   }
 }

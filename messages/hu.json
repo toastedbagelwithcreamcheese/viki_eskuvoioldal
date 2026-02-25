@@ -196,7 +196,7 @@
     "btnFinalize": "Foglalás Véglegesítése",
     "errTaken": "Sajnos ezt a szobát közben elvitték. Kérjük válassz másikat!",
     "errUnexpected": "Váratlan hiba történt. Kérlek próbáld újra!",
-    "villaDiscount": "2 éjszakás foglalás esetén 20% kedvezményt biztosítunk a szobaárból! (36.000 Ft / éj)",
+    "twoNightsDiscount": "2 éjszakás foglalás esetén 20% kedvezményt biztosítunk a szobaárból!",
     "discountLabel": "(-20%)"
   }
 }

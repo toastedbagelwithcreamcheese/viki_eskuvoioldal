@@ -196,7 +196,7 @@
     "btnFinalize": "Finalize Booking",
     "errTaken": "Unfortunately, this room has just been taken. Please choose another one!",
     "errUnexpected": "An unexpected error occurred. Please try again!",
-    "villaDiscount": "For a 2-night stay, we offer a 20% discount on the room rate! (36,000 HUF / night)",
+    "twoNightsDiscount": "For a 2-night stay, we offer a 20% discount on the room rate!",
     "discountLabel": "(-20%)"
   }
 }

@@ -698,6 +698,9 @@ body{
 .mb-8{
   margin-bottom: 2rem;
 }
+.ml-1{
+  margin-left: 0.25rem;
+}
 .ml-4{
   margin-left: 1rem;
 }
@@ -736,9 +739,6 @@ body{
 }
 .mt-auto{
   margin-top: auto;
-}
-.ml-1{
-  margin-left: 0.25rem;
 }
 .block{
   display: block;
@@ -1173,6 +1173,10 @@ body{
   --tw-border-opacity: 1;
   border-color: rgb(235 202 202 / var(--tw-border-opacity, 1));
 }
+.border-amber-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
+}
 .border-blue-100{
   --tw-border-opacity: 1;
   border-color: rgb(219 234 254 / var(--tw-border-opacity, 1));
@@ -1182,6 +1186,10 @@ body{
 }
 .border-border\/50{
   border-color: hsl(var(--border) / 0.5);
+}
+.border-emerald-100{
+  --tw-border-opacity: 1;
+  border-color: rgb(209 250 229 / var(--tw-border-opacity, 1));
 }
 .border-emerald-400{
   --tw-border-opacity: 1;
@@ -1227,10 +1235,6 @@ body{
   --tw-border-opacity: 1;
   border-color: rgb(251 113 133 / var(--tw-border-opacity, 1));
 }
-.border-rose-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(244 63 94 / var(--tw-border-opacity, 1));
-}
 .border-sky-100{
   --tw-border-opacity: 1;
   border-color: rgb(224 242 254 / var(--tw-border-opacity, 1));
@@ -1244,14 +1248,6 @@ body{
 .border-yellow-200{
   --tw-border-opacity: 1;
   border-color: rgb(254 240 138 / var(--tw-border-opacity, 1));
-}
-.border-amber-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
-}
-.border-emerald-100{
-  --tw-border-opacity: 1;
-  border-color: rgb(209 250 229 / var(--tw-border-opacity, 1));
 }
 .bg-\[\#487266\]{
   --tw-bg-opacity: 1;
@@ -1801,6 +1797,10 @@ body{
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity, 1));
 }
+.text-emerald-600{
+  --tw-text-opacity: 1;
+  color: rgb(5 150 105 / var(--tw-text-opacity, 1));
+}
 .text-emerald-700{
   --tw-text-opacity: 1;
   color: rgb(4 120 87 / var(--tw-text-opacity, 1));
@@ -1952,10 +1952,6 @@ body{
 .text-yellow-900{
   --tw-text-opacity: 1;
   color: rgb(113 63 18 / var(--tw-text-opacity, 1));
-}
-.text-emerald-600{
-  --tw-text-opacity: 1;
-  color: rgb(5 150 105 / var(--tw-text-opacity, 1));
 }
 .underline{
   text-decoration-line: underline;

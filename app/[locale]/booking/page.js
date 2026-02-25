@@ -74,7 +74,7 @@ export default function BookingPage() {
     }); 
   };
 
-  // 3. Árkalkuláció (kibővítve a Villa 2 éjszakás kedvezményével)
+// 3. Árkalkuláció
   const calculatePrice = () => {
     if (!selectedRoom) return 0;
     
@@ -365,10 +365,10 @@ export default function BookingPage() {
                         </label>
                       </div>
 
-                      {/* Villa Chardonnay extra 20% kiemelés */}
-                      {selectedRoom.accommodation_name === 'Villa Chardonnay' && formData.nights === 2 && (
+                      {/* Mindkét szállásnál megjelenik a 20%-os kiemelés, ha 2 éjszakát választ */}
+                      {formData.nights === 2 && (
                         <div className="mt-4 p-3 bg-emerald-50 border border-emerald-100 rounded-lg text-emerald-700 text-xs font-semibold text-center flex items-center justify-center gap-2">
-                           <Check size={16} /> {t('villaDiscount')}
+                           <Check size={16} /> {t('twoNightsDiscount')}
                         </div>
                       )}
                     </div>
@@ -543,7 +543,7 @@ function RoomCard({ room, onSelect, disabled, t }) {
           ) : (
              <>
                <p>{t('oneNightSat')} <span className="font-semibold">{room.price_1_night.toLocaleString()} Ft</span></p>
-               <p>{t('twoNightsFriSat')} <span className="font-semibold">{(room.price_2_nights_per_night * 2).toLocaleString()} Ft</span></p>
+               <p>{t('twoNightsFriSat')} <span className="font-semibold">{(room.price_2_nights_per_night * 2).toLocaleString()} Ft</span> <span className="text-xs text-emerald-600 font-bold ml-1">{t('discountLabel')}</span></p>
                <p className="text-xs text-rose-500 pt-1">{t('plusIfa')}</p>
              </>
           )}

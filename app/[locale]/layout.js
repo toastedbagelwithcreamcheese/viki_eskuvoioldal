@@ -24,7 +24,11 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const locale = params?.locale || 'hu';
+  // 1. LÉPÉS: Megvárjuk a dinamikus paramétereket (Next.js 15 újítás!)
+  const resolvedParams = await params;
+  
+  // 2. LÉPÉS: Ebből olvassuk ki a locale-t
+  const locale = resolvedParams?.locale || 'hu';
 
   if (!['hu', 'en', 'de'].includes(locale)) notFound();
 

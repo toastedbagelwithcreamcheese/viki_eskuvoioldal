@@ -12,26 +12,16 @@
       "static/css/app/[locale]/layout.css",
       "static/chunks/app/[locale]/layout.js"
     ],
-    "/[locale]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[locale]/page.css",
-      "static/chunks/app/[locale]/page.js"
-    ],
     "/[locale]/booking/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[locale]/booking/page.js"
     ],
-    "/login/layout": [
+    "/[locale]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/login/layout.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
+      "static/css/app/[locale]/page.css",
+      "static/chunks/app/[locale]/page.js"
     ],
     "/admin/layout": [
       "static/chunks/webpack.js",
