@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@supabase/supabase-js';
-import { Check, Loader2, Plus, Trash2, User, MessageSquare, Hotel } from 'lucide-react';
+import { Check, Loader2, Plus, Trash2, User, MessageSquare, Hotel, Bus } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -77,7 +77,7 @@ export default function RsvpForm() {
       return;
     }
 
-    // 2. MENTJÜK A VENDÉGEKET AKKOR IS, HA NEM JÖNNEK (isAttending check törölve innen)
+    // 2. MENTJÜK A VENDÉGEKET AKKOR IS, HA NEM JÖNNEK
     // Csak azokat mentjük, akiknek van neve
     if (guests.some((g) => g.name.trim() !== '')) {
       const guestsToInsert = guests
@@ -123,7 +123,7 @@ export default function RsvpForm() {
           {isAttending ? t('successAttending') : t('successNotAttending')}
         </p>
 
-        {/* ÚJ RÉSZ: Gomb a szállásfoglaláshoz, ha jönnek */}
+        {/* Gomb a szállásfoglaláshoz, ha jönnek */}
         {isAttending && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -179,7 +179,32 @@ export default function RsvpForm() {
         </button>
       </div>
 
-      {/* Vendéglista - Most már mindig látható, nem csak ha isAttending=true */}
+      {/* ÚJ RÉSZ: TRANSZFER INFORMÁCIÓS DOBOZ (Csak akkor látszik, ha jönnek) */}
+      <AnimatePresence>
+        {isAttending && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="bg-amber-50/80 border border-amber-200 rounded-xl p-5 text-amber-900 space-y-2 shadow-sm">
+              <div className="flex items-center gap-2 font-semibold text-base text-amber-800">
+                <Bus className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                <h4>{t('transferInfoTitle')}</h4>
+              </div>
+              <p className="text-sm leading-relaxed text-amber-900/90 font-medium">
+                {t('transferInfoDesc')}
+              </p>
+              <p className="text-xs italic pt-1 text-amber-700 font-semibold">
+                {t('transferInfoCta')}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Vendéglista */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -187,7 +212,6 @@ export default function RsvpForm() {
       >
         <div>
           <label className="block text-lg font-semibold text-gray-800 mb-4">
-            {/* Dinamikus cím attól függően, hogy jönnek-e */}
             {isAttending ? t('guestsTitle') : t('guestsTitleNotAttending')}
           </label>
           
@@ -250,7 +274,7 @@ export default function RsvpForm() {
                       exit={{ opacity: 0, height: 0 }}
                       className="flex items-center justify-around pt-2 text-sm text-gray-600 overflow-hidden"
                     >
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label className="flex items-center gap-2 cursor-pointer font-medium hover:text-gray-900">
                         <input
                           type="checkbox"
                           checked={guest.needs_transfer}
@@ -261,11 +285,11 @@ export default function RsvpForm() {
                               e.target.checked
                             )
                           }
-                          className="h-4 w-4 rounded"
+                          className="h-4 w-4 rounded accent-emerald-600"
                         />{' '}
                         {t('requestTransfer')}
                       </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label className="flex items-center gap-2 cursor-pointer font-medium hover:text-gray-900">
                         <input
                           type="checkbox"
                           checked={guest.needs_accommodation}
@@ -276,7 +300,7 @@ export default function RsvpForm() {
                               e.target.checked
                             )
                           }
-                          className="h-4 w-4 rounded"
+                          className="h-4 w-4 rounded accent-emerald-600"
                         />{' '}
                         {t('requestAccommodation')}
                       </label>
@@ -290,7 +314,7 @@ export default function RsvpForm() {
           <button
             type="button"
             onClick={addGuest}
-            className={`flex items-center gap-2 mt-4 hover:underline ${
+            className={`flex items-center gap-2 mt-4 hover:underline font-medium ${
                isAttending ? 'text-emerald-700' : 'text-rose-700'
             }`}
           >

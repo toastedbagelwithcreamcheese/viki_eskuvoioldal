@@ -54,7 +54,10 @@
     "submit": "Visszajelzés elküldése",
     "successTitle": "Köszönjük a visszajelzésed!",
     "successAttending": "Szeretettel várunk a nagy napon!",
-    "successNotAttending": "Sajnáljuk, hogy nem tudsz velünk ünnepelni."
+    "successNotAttending": "Sajnáljuk, hogy nem tudsz velünk ünnepelni.",
+    "transferInfoTitle": "Transzferszolgáltatás",
+    "transferInfoDesc": "Vendégeink kényelme érdekében — hogy mindenki gondtalanul és maximálisan élvezhesse az estét — igény esetén transzferszolgáltatást is biztosítunk. A busz Székesfehérvárról indul és oda is érkezik vissza. Az ár 5.000 Ft/fő, amely tartalmazza az oda-vissza utazás költségét is.",
+    "transferInfoCta": "Kérjük, transzferigényeteket előre jelezzétek felénk az alábbi jelölőnégyzet bepipálásával 😊"
   },
   "Info": {
     "title": "Hasznos Információk",

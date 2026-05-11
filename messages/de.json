@@ -54,7 +54,10 @@
     "submit": "Zusage senden",
     "successTitle": "Vielen Dank für Ihre Rückmeldung!",
     "successAttending": "Wir freuen uns darauf, mit Ihnen zu feiern!",
-    "successNotAttending": "Wir bedauern, dass Sie nicht mit uns feiern können."
+    "successNotAttending": "Wir bedauern, dass Sie nicht mit uns feiern können.",
+    "transferInfoTitle": "Transferservice",
+    "transferInfoDesc": "Für den Komfort unserer Gäste — damit jeder den Abend sorgenfrei und in vollen Zügen genießen kann — bieten wir auf Wunsch einen Transferservice an. Der Bus fährt von Székesfehérvár ab und kehrt auch dorthin zurück. Der Preis beträgt 5.000 HUF/Person und beinhaltet bereits die Kosten für die Hin- und Rückfahrt.",
+    "transferInfoCta": "Bitte teilt uns euren Transferwunsch vorab mit, indem ihr das untenstehende Kästchen ankreuzt 😊"
   },
   "Info": {
     "title": "Nützliche Informationen",
