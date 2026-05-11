@@ -87,16 +87,7 @@ export default function Info() {
                 {t('accommodationTitle')}
               </h3>
               
-              <div className="mb-6 p-4 bg-rose-50 border border-rose-200 rounded-xl flex gap-3 shadow-sm">
-                <AlertTriangle className="text-rose-600 w-6 h-6 flex-shrink-0 mt-1" />
-                <div className="text-sm text-rose-900 leading-relaxed">
-                  <strong>{t('deadlineWarningTitle')}</strong> {t('deadlineWarningTextPre')}
-                  <strong className="text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded font-bold">
-                    {t('deadlineWarningDate')}
-                  </strong> 
-                  {t('deadlineWarningTextPost')}
-                </div>
-              </div>
+
 
               <ul className="space-y-4 mb-6">
                 {accommodations.map((acc) => (
