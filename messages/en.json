@@ -201,5 +201,16 @@
     "errUnexpected": "An unexpected error occurred. Please try again!",
     "twoNightsDiscount": "For a 2-night stay, we offer a 20% discount on the room rate!",
     "discountLabel": "(-20%)"
+  },
+  "Party": {
+    "live_tag": "LIVE PHOTO WALL",
+    "title": "Let the Party Begin!",
+    "subtitle": "Snap photos on the dance floor, upload them here, and watch them appear instantly on the shared wall!",
+    "upload_button": "📸 Snap & Upload a Photo!",
+    "save_button": "Save",
+    "status_compressing": "Optimizing image... ⏳",
+    "status_uploading": "Uploading to party wall... 🚀",
+    "status_success": "Successfully uploaded! 🎉",
+    "status_error": "Upload failed. ❌"
   }
 }

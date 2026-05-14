@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import PhotoUploader from './PhotoUploader';
 
 const supabase = createClient(
@@ -13,9 +14,9 @@ const supabase = createClient(
 );
 
 export default function PartyView() {
+  const t = useTranslations('Party');
   const [photos, setPhotos] = useState([]);
 
-  // Képek betöltése és Realtime feliratkozás
   useEffect(() => {
     const fetchPhotos = async () => {
       const { data } = await supabase
@@ -27,12 +28,10 @@ export default function PartyView() {
 
     fetchPhotos();
 
-    // Valós idejű figyelés az új képekre
     const channel = supabase
       .channel('realtime:photos')
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'photos' }, 
         (payload) => {
-          // Új kép hozzáadása a lista elejére dinamikusan
           setPhotos((prev) => [payload.new, ...prev]);
         }
       )
@@ -41,7 +40,6 @@ export default function PartyView() {
     return () => supabase.removeChannel(channel);
   }, []);
 
-  // Kép letöltése (Böngészős letöltés kényszerítése)
   const downloadImage = async (url) => {
     try {
       const response = await fetch(url);
@@ -58,64 +56,133 @@ export default function PartyView() {
     }
   };
 
+  // Csökkentett részecskeszám a stabilabb mobil memóriáért
+  const particles = Array.from({ length: 12 });
+
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      transition={{ duration: 1 }}
-      className="min-h-screen bg-slate-950 text-white pt-12 pb-24 px-4 relative overflow-hidden"
-    >
-      {/* Neon háttér effektek */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="min-h-screen bg-black text-white pt-12 pb-24 px-4 relative overflow-hidden font-body">
+      
+      {/* --- MEMÓRIA-OPTIMALIZÁLT HÁTTÉR --- */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        
+        {/* Maximum 4 db lebegő fotó, GPU gyorsítással */}
+        {photos.slice(0, 4).map((photo, index) => {
+          const animPaths = [
+            { x: [0, 80, -30, 0], y: [0, -100, 50, 0] },
+            { x: [0, -60, 50, 0], y: [0, 80, -60, 0] },
+            { x: [30, -80, 20, 30], y: [-30, 60, -50, -30] },
+            { x: [-50, 60, -20, -50], y: [50, -60, 30, 50] },
+          ];
+          const path = animPaths[index % animPaths.length];
 
-      {/* Fejléc */}
-      <div className="max-w-4xl mx-auto text-center relative z-10 mt-6">
-        <motion.h1 
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent"
-        >
-          Induljon a Buli! 🪩
-        </motion.h1>
-        <p className="mt-2 text-slate-400 text-sm md:text-base">
-          Készítsétek a legjobb pillanatokat, töltsétek fel, és mentsétek le a kedvenceiteket!
-        </p>
+          return (
+            <motion.div
+              key={`bg-${photo.id || index}`}
+              className="absolute opacity-20 select-none"
+              style={{
+                top: `${15 + (index * 20)}%`,
+                left: `${10 + (index * 20)}%`,
+                width: '260px',
+                height: '260px',
+                filter: 'blur(20px)', // Kicsit enyhébb blur a simább futásért
+                willChange: 'transform', // GPU gyorsítás bekapcsolása
+              }}
+              animate={path}
+              transition={{
+                duration: 20 + (index * 2),
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <Image
+                src={photo.url}
+                alt="Ambient Bokeh"
+                fill
+                sizes="260px"
+                className="object-cover rounded-full"
+                priority={index < 2}
+              />
+            </motion.div>
+          );
+        })}
 
-        {/* Feltöltő komponens */}
-        <PhotoUploader />
-      </div>
+        {/* Statikusabb/egyszerűbb prémium fénygömbök */}
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-pink-600/20 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-40 left-1/3 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[100px]" />
 
-      {/* Képrács (Masonry jellegű grid) */}
-      <div className="max-w-6xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 relative z-10">
-        {photos.map((photo, index) => (
+        {/* Optimalizált részecskék */}
+        {particles.map((_, i) => (
           <motion.div
-            key={photo.id || index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="group relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 shadow-lg"
-          >
-            <Image
-              src={photo.url}
-              alt="Party moment"
-              fill
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            {/* Hover letöltő réteg */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-              <button
-                onClick={() => downloadImage(photo.url)}
-                className="bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/40 transition-colors"
-                title="Kép letöltése"
-              >
-                💾 {/* Ide tehetsz szép SVG ikont is */}
-              </button>
-            </div>
-          </motion.div>
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full opacity-30"
+            style={{
+              left: `${(i * 8.5) % 100}%`,
+              top: '100%',
+              willChange: 'transform',
+            }}
+            animate={{ top: ['100%', '-5%'], opacity: [0, 0.5, 0] }}
+            transition={{
+              duration: 12 + (i % 5),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: 'linear',
+            }}
+          />
         ))}
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black z-10" />
       </div>
-    </motion.div>
+
+      {/* --- TARTALOM --- */}
+      <div className="relative z-20 max-w-6xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-3xl mx-auto text-center backdrop-blur-md bg-white/[0.03] border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl mb-12"
+        >
+          <div className="inline-block px-4 py-1.5 mb-4 rounded-full text-xs font-semibold tracking-widest uppercase bg-white/5 border border-white/10">
+            🔴 {t('live_tag') || 'ÉLŐ KÖZÖS FOTÓFAL'}
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            {t('title') || 'Induljon a Buli! 🪩'}
+          </h1>
+          <p className="mt-3 text-slate-300 text-xs md:text-sm max-w-xl mx-auto font-light leading-relaxed">
+            {t('subtitle') || 'Lőjetek képeket a tánctéren, töltsétek fel ide, és nézzétek meg, ahogy azonnal megjelennek a közös falon!'}
+          </p>
+
+          <PhotoUploader />
+        </motion.div>
+
+        {/* Galéria rács */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 px-1">
+          {photos.map((photo, index) => (
+            <div
+              key={photo.id || index}
+              className="group relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10 shadow-lg"
+            >
+              <Image
+                src={photo.url}
+                alt="Party moment"
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover"
+              />
+              
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                <button
+                  onClick={() => downloadImage(photo.url)}
+                  className="px-4 py-2 rounded-full bg-white/20 border border-white/40 text-white font-medium text-xs backdrop-blur-sm"
+                >
+                  {t('save_button') || 'Mentés'}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
   );
 }

@@ -201,5 +201,16 @@
     "errUnexpected": "Váratlan hiba történt. Kérlek próbáld újra!",
     "twoNightsDiscount": "2 éjszakás foglalás esetén 20% kedvezményt biztosítunk a szobaárból!",
     "discountLabel": "(-20%)"
+  },
+  "Party": {
+    "live_tag": "ÉLŐ KÖZÖS FOTÓFAL",
+    "title": "Induljon a Buli!",
+    "subtitle": "Lőjetek képeket a tánctéren, töltsétek fel ide, és nézzétek meg, ahogy azonnal megjelennek a közös falon!",
+    "upload_button": "📸 Lőj egy képet & Töltsd fel!",
+    "save_button": "Mentés",
+    "status_compressing": "Kép optimalizálása... ⏳",
+    "status_uploading": "Feltöltés a bulifalra... 🚀",
+    "status_success": "Sikeres feltöltés! 🎉",
+    "status_error": "Hiba történt a feltöltéskor. ❌"
   }
 }

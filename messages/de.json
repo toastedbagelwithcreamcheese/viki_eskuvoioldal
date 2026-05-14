@@ -201,5 +201,16 @@
     "errUnexpected": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut!",
     "twoNightsDiscount": "Bei einem Aufenthalt von 2 Nächten bieten wir 20% Rabatt auf den Zimmerpreis!",
     "discountLabel": "(-20%)"
+  },
+  "Party": {
+    "live_tag": "LIVE-FOTOWAND",
+    "title": "Lasst die Party beginnen!",
+    "subtitle": "Macht Fotos auf der Tanzfläche, ladet sie hier hoch und seht zu, wie sie sofort auf der gemeinsamen Fotowand erscheinen!",
+    "upload_button": "📸 Foto machen & hochladen!",
+    "save_button": "Speichern",
+    "status_compressing": "Bild wird optimiert... ⏳",
+    "status_uploading": "Wird hochgeladen... 🚀",
+    "status_success": "Erfolgreich hochgeladen! 🎉",
+    "status_error": "Fehler beim Hochladen. ❌"
   }
 }
