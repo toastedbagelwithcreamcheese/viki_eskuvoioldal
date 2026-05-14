@@ -1,5 +1,7 @@
+// app/[locale]/page.js
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -11,10 +13,41 @@ import Info from '../../components/Info';
 import Contact from '../../components/Contact';
 import Gallery from '../../components/Gallery';
 import ScrollToTopButton from '../../components/ScrollToTopButton';
+import PartyView from '../../components/PartyView';
 
 export default function WeddingWebsite() {
   const t = useTranslations(); // Fordítási hook
+  const [isPartyMode, setIsPartyMode] = useState(false);
 
+  useEffect(() => {
+    // Ugyanaz az időpont, amit a Hero-ban is beállítottál a visszaszámlálónak
+    const targetDate = new Date('2026-06-06T17:00:00').getTime();
+
+    const checkPartyTime = () => {
+      const now = new Date().getTime();
+      // Ha az aktuális idő elérte vagy átlépte a célidőpontot, buli mód bekapcsol
+      if (now >= targetDate) {
+        setIsPartyMode(true);
+      } else {
+        setIsPartyMode(false);
+      }
+    };
+
+    // Azonnali ellenőrzés az oldal betöltésekor
+    checkPartyTime();
+
+    // Folyamatos ellenőrzés másodpercenként, hogy élőben váltson át,
+    // ha a vendég pont megnyitva hagyta a böngészőt
+    const timer = setInterval(checkPartyTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Ha a számláló lejárt, CSAK a bulis felületet mutatjuk navigáció nélkül
+  if (isPartyMode) {
+    return <PartyView />;
+  }
+
+  // Egyébként a normál esküvői oldalt rendereljük
   return (
     <main className="min-h-screen font-body relative">
       <Navbar />
