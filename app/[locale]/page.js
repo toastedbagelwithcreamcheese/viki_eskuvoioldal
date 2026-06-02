@@ -21,7 +21,7 @@ export default function WeddingWebsite() {
 
   useEffect(() => {
     // Ugyanaz az időpont, amit a Hero-ban is beállítottál a visszaszámlálónak
-    const targetDate = new Date('2026-06-01T17:00:00').getTime();
+    const targetDate = new Date('2026-06-06T17:00:00').getTime();
 
     const checkPartyTime = () => {
       const now = new Date().getTime();
