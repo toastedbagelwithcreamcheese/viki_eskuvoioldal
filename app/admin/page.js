@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import ImageManager from '../../components/ImageManager';
 import MessageManager from '../../components/MessageManager';
 import BookingManager from '../../components/BookingManager'; // ÚJ IMPORT
+import DownloadAllImages from '../../components/DownloadAllImages';
 
 export default async function RsvpAdminPage({ searchParams }) {
   const params = await searchParams;
@@ -62,7 +63,8 @@ export default async function RsvpAdminPage({ searchParams }) {
     <div className="container mx-auto p-4 md:p-8 space-y-12">
       <div>
         <h1 className="text-3xl md:text-4xl font-serif mb-6">Admin Felület</h1>
-
+        
+        
         {/* Összesítő kártyák (RSVP) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="p-4 bg-emerald-100 rounded-lg">
@@ -177,16 +179,22 @@ export default async function RsvpAdminPage({ searchParams }) {
       </div>
 
       {/* Képek és Üzenetek kezelése */}
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
-           <h2 className="text-2xl font-serif mt-8 mb-4">Galéria Kezelése</h2>
-           <ImageManager />
-        </div>
-        <div>
-           <h2 className="text-2xl font-serif mt-8 mb-4">Beérkezett Üzenetek</h2>
-           <MessageManager messages={messages} />
-        </div>
-      </div>
+<div className="grid md:grid-cols-2 gap-8">
+  <div>
+     <div className="flex items-center justify-between mt-8 mb-4">
+       <h2 className="text-2xl font-serif">Galéria Kezelése</h2>
+       {/* ITT VAN AZ ÚJ GOMB */}
+       <DownloadAllImages />
+     </div>
+     <ImageManager />
+  </div>
+  <div>
+     <h2 className="text-2xl font-serif mt-8 mb-4">Beérkezett Üzenetek</h2>
+     <MessageManager messages={messages} />
+  </div>
+</div>
+
+      
 
     </div>
   );
