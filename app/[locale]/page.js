@@ -1,4 +1,5 @@
 // app/[locale]/page.js
+//tesztkomment
 'use client';
 import { useTranslations } from 'next-intl';
 import Navbar from '../../components/Navbar';
