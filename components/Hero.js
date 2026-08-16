@@ -1,48 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
   const t = useTranslations('Hero');
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    // A ceremónia pontos ideje (17:00)
-    const targetDate = new Date('2026-06-06T17:00:00');
-
-    const updateCountdown = () => {
-      const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-        setTimeLeft({ days, hours, minutes, seconds });
-      }
-    };
-
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Segédfüggvény (pl. 9 → 09)
-  const formatNumber = (num) => num.toString().padStart(2, '0');
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center text-center text-white">
+    <section className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden px-4 text-center text-white">
       {/* Háttérkép Ken Burns effekttel */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -81,49 +47,19 @@ export default function Hero() {
           Viktória & Tomi
         </h1>
 
-        {/* Dátum */}
         <p
-          className="mt-4 text-xl md:text-2xl tracking-widest uppercase font-body"
+          className="mt-5 text-lg font-medium tracking-[0.18em] md:text-xl"
           style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
         >
           {t('date')}
         </p>
 
-        {/* Visszaszámláló */}
-        <div className="mt-12 md:mt-16 flex justify-center items-end space-x-4 md:space-x-8 backdrop-blur-sm bg-white/10 p-4 md:p-6 rounded-lg border border-white/20">
-          <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
-              {formatNumber(timeLeft.days)}
-            </p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
-              {t('days')}
-            </p>
-          </div>
-          <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
-              {formatNumber(timeLeft.hours)}
-            </p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
-              {t('hours')}
-            </p>
-          </div>
-          <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
-              {formatNumber(timeLeft.minutes)}
-            </p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
-              {t('minutes')}
-            </p>
-          </div>
-          <div className="text-center w-20">
-            <p className="text-4xl md:text-6xl font-heading tracking-tighter">
-              {formatNumber(timeLeft.seconds)}
-            </p>
-            <p className="uppercase text-xs md:text-sm font-body tracking-wider">
-              {t('seconds')}
-            </p>
-          </div>
-        </div>
+        <p className="mx-auto mt-8 max-w-xl text-xl leading-relaxed md:text-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+          {t('message')}
+        </p>
+        <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/90 md:text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+          {t('thanks')}
+        </p>
       </motion.div>
     </section>
   );

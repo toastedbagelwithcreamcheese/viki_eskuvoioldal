@@ -16,10 +16,8 @@
   },
   "Hero": {
     "date": "2026. Június 6.",
-    "days": "Nap",
-    "hours": "Óra",
-    "minutes": "Perc",
-    "seconds": "Másodperc"
+    "message": "Megvolt a nagy nap, és minden várakozásunkat felülmúlta.",
+    "thanks": "Köszönjük, hogy velünk ünnepeltetek, és ilyen felejthetetlenné tettétek."
   },
 "Venue": {
   "title": "A Nagy Nap Helyszíne",
@@ -112,8 +110,10 @@
   },
   "Gallery": {
     "title": "Galéria",
-    "subtitle": "Néhány kedves közös emlékünk.",
-    "loading": "A galéria feltöltés alatt..."
+    "subtitle": "Közös emlékeink a nagy napról és az azt követő ünneplésről.",
+    "loading": "A galéria betöltése folyamatban...",
+    "empty": "Hamarosan megosztjuk veletek a képeket.",
+    "error": "A galéria most nem elérhető. Kérjük, próbáljátok meg később."
   },
   "Contact": {
     "title": "Üzenj nekünk!",

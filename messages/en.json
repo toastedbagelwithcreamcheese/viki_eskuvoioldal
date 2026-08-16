@@ -16,10 +16,8 @@
   },
   "Hero": {
     "date": "June 6, 2026",
-    "days": "Days",
-    "hours": "Hours",
-    "minutes": "Minutes",
-    "seconds": "Seconds"
+    "message": "The big day has come and gone, and it exceeded all our hopes.",
+    "thanks": "Thank you for celebrating with us and making it so unforgettable."
   },
   "Venue": {
   "title": "The Wedding Venue",
@@ -112,8 +110,10 @@
   },
   "Gallery": {
     "title": "Gallery",
-    "subtitle": "A few of our dear memories together.",
-    "loading": "Gallery is being updated..."
+    "subtitle": "Our shared memories from the big day and the celebration that followed.",
+    "loading": "The gallery is loading...",
+    "empty": "We will share the photos with you soon.",
+    "error": "The gallery is unavailable right now. Please try again later."
   },
   "Contact": {
     "title": "Send us a message!",

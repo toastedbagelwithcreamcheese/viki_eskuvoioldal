@@ -16,10 +16,8 @@
   },
   "Hero": {
     "date": "6. Juni 2026",
-    "days": "Tage",
-    "hours": "Stunden",
-    "minutes": "Minuten",
-    "seconds": "Sekunden"
+    "message": "Der große Tag liegt hinter uns und hat all unsere Erwartungen übertroffen.",
+    "thanks": "Danke, dass ihr mit uns gefeiert und diesen Tag unvergesslich gemacht habt."
   },
   "Venue": {
     "title": "Der Veranstaltungsort",
@@ -112,8 +110,10 @@
   },
   "Gallery": {
     "title": "Galerie",
-    "subtitle": "Einige unserer schönsten gemeinsamen Erinnerungen.",
-    "loading": "Die Galerie wird gerade aktualisiert..."
+    "subtitle": "Unsere gemeinsamen Erinnerungen an den großen Tag und die anschließende Feier.",
+    "loading": "Die Galerie wird geladen...",
+    "empty": "Wir teilen die Fotos bald mit euch.",
+    "error": "Die Galerie ist derzeit nicht verfügbar. Bitte versucht es später erneut."
   },
   "Contact": {
     "title": "Senden Sie uns eine Nachricht!",
