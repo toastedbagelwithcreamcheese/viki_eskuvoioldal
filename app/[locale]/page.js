@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Hero from '../../components/Hero';
+import HighlightVideo from '../../components/HighlightVideo';
 import Venue from '../../components/Venue';
 import RsvpForm from '../../components/RsvpForm';
 import DressCode from '../../components/DressCode';
@@ -22,6 +23,10 @@ export default function WeddingWebsite() {
       <div id="hero">
         <Hero />
       </div>
+
+      <section id="highlight" className="py-20 scroll-mt-20">
+        <HighlightVideo />
+      </section>
 
       <section id="venue" className="py-20 scroll-mt-20">
         <Venue />

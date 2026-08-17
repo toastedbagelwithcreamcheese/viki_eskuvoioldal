@@ -113,12 +113,14 @@
     "subtitle": "Közös emlékeink a nagy napról és az azt követő ünneplésről.",
     "loading": "A galéria betöltése folyamatban...",
     "empty": "Hamarosan megosztjuk veletek a képeket.",
-    "error": "A galéria most nem elérhető. Kérjük, próbáljátok meg később.",
-    "highlightLabel": "Highlight videó",
-    "highlightTitle": "A nagy nap egy videóban",
-    "highlightCaption": "Nézzétek meg, hogyan telt a napunk – köszönjük, hogy ti is ott voltatok benne!",
-    "highlightPlay": "Highlight videó lejátszása",
-    "highlightOpenYoutube": "Megtekintés a YouTube-on"
+    "error": "A galéria most nem elérhető. Kérjük, próbáljátok meg később."
+  },
+  "Highlight": {
+    "label": "Highlight videó",
+    "title": "A nagy nap egy videóban",
+    "caption": "Nézzétek meg, hogyan telt a napunk – köszönjük, hogy ti is ott voltatok benne!",
+    "play": "Highlight videó lejátszása",
+    "openYoutube": "Megtekintés a YouTube-on"
   },
   "Contact": {
     "title": "Üzenj nekünk!",

@@ -113,12 +113,14 @@
     "subtitle": "Our shared memories from the big day and the celebration that followed.",
     "loading": "The gallery is loading...",
     "empty": "We will share the photos with you soon.",
-    "error": "The gallery is unavailable right now. Please try again later.",
-    "highlightLabel": "Highlight video",
-    "highlightTitle": "The big day in one video",
-    "highlightCaption": "Watch how our day unfolded — thank you for being part of it!",
-    "highlightPlay": "Play the highlight video",
-    "highlightOpenYoutube": "Watch on YouTube"
+    "error": "The gallery is unavailable right now. Please try again later."
+  },
+  "Highlight": {
+    "label": "Highlight video",
+    "title": "The big day in one video",
+    "caption": "Watch how our day unfolded — thank you for being part of it!",
+    "play": "Play the highlight video",
+    "openYoutube": "Watch on YouTube"
   },
   "Contact": {
     "title": "Send us a message!",
