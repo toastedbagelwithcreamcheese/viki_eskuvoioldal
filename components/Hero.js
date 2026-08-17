@@ -17,8 +17,8 @@ export default function Hero() {
         transition={{ duration: 30, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
       >
         <Image
-          src="/images/0O9A2145.jpg"
-          alt="Viktória és Tomi"
+          src="/images/hero-ceremony.jpg"
+          alt="Viktória és Tomi a ceremónia után"
           fill
           quality={90}
           priority
@@ -54,10 +54,10 @@ export default function Hero() {
           {t('date')}
         </p>
 
-        <p className="mx-auto mt-8 max-w-xl text-xl leading-relaxed md:text-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed md:text-xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
           {t('message')}
         </p>
-        <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/90 md:text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
           {t('thanks')}
         </p>
       </motion.div>

@@ -16,8 +16,8 @@
   },
   "Hero": {
     "date": "6. Juni 2026",
-    "message": "Der große Tag liegt hinter uns und hat all unsere Erwartungen übertroffen.",
-    "thanks": "Danke, dass ihr mit uns gefeiert und diesen Tag unvergesslich gemacht habt."
+    "message": "Danke, dass ihr alle Teil dieses wunderbaren Tages wart. Dieser Tag war auch für euch, und durch euch wurde er wirklich besonders – ihr habt ihn für uns noch unvergesslicher gemacht.",
+    "thanks": "Wir sind unendlich dankbar für diesen Tag, für dieses wunderschöne Erlebnis und vor allem dafür, dass so fantastische Menschen uns umgeben."
   },
   "Venue": {
     "title": "Der Veranstaltungsort",
@@ -113,7 +113,12 @@
     "subtitle": "Unsere gemeinsamen Erinnerungen an den großen Tag und die anschließende Feier.",
     "loading": "Die Galerie wird geladen...",
     "empty": "Wir teilen die Fotos bald mit euch.",
-    "error": "Die Galerie ist derzeit nicht verfügbar. Bitte versucht es später erneut."
+    "error": "Die Galerie ist derzeit nicht verfügbar. Bitte versucht es später erneut.",
+    "highlightLabel": "Highlight-Video",
+    "highlightTitle": "Der große Tag in einem Video",
+    "highlightCaption": "Seht, wie unser Tag verlaufen ist – danke, dass ihr dabei wart!",
+    "highlightPlay": "Highlight-Video abspielen",
+    "highlightOpenYoutube": "Auf YouTube ansehen"
   },
   "Contact": {
     "title": "Senden Sie uns eine Nachricht!",

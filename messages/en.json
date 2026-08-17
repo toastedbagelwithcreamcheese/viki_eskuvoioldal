@@ -16,8 +16,8 @@
   },
   "Hero": {
     "date": "June 6, 2026",
-    "message": "The big day has come and gone, and it exceeded all our hopes.",
-    "thanks": "Thank you for celebrating with us and making it so unforgettable."
+    "message": "Thank you all for being part of this wonderful day. This day was for you as well, and it became truly special because of you — you made it even more unforgettable for us.",
+    "thanks": "We are endlessly grateful for this day, for this wonderful experience, and above all for being surrounded by such fantastic people."
   },
   "Venue": {
   "title": "The Wedding Venue",
@@ -113,7 +113,12 @@
     "subtitle": "Our shared memories from the big day and the celebration that followed.",
     "loading": "The gallery is loading...",
     "empty": "We will share the photos with you soon.",
-    "error": "The gallery is unavailable right now. Please try again later."
+    "error": "The gallery is unavailable right now. Please try again later.",
+    "highlightLabel": "Highlight video",
+    "highlightTitle": "The big day in one video",
+    "highlightCaption": "Watch how our day unfolded — thank you for being part of it!",
+    "highlightPlay": "Play the highlight video",
+    "highlightOpenYoutube": "Watch on YouTube"
   },
   "Contact": {
     "title": "Send us a message!",
