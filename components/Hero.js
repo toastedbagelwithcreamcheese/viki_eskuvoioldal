@@ -17,8 +17,8 @@ export default function Hero() {
         transition={{ duration: 30, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
       >
         <Image
-          src="/images/hero-ceremony.jpg"
-          alt="Viktória és Tomi a ceremónia után"
+          src="/images/0O9A2145.jpg"
+          alt="Viktória és Tomi"
           fill
           quality={90}
           priority
