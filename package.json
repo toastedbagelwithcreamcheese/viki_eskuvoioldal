@@ -18,7 +18,7 @@
     "framer-motion": "^12.23.6",
     "jszip": "^3.10.1",
     "lucide-react": "^0.475.0",
-    "next": "^15.5.12",
+    "next": "^15.5.28",
     "next-intl": "^4.8.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
